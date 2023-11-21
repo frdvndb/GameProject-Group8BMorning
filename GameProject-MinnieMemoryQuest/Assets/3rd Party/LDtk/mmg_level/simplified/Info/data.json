@@ -1,0 +1,20 @@
+{
+	"identifier": "Info",
+	"uniqueIdentifer": "77883aa0-3b70-11ee-95d7-bf07991cad03",
+	"x": 0,
+	"y": -432,
+	"width": 256,
+	"height": 432,
+	"bgColor": "#696A79",
+	"neighbourLevels": [
+		{
+			"levelIid": "73f89800-3b70-11ee-be6b-51339aac9eff",
+			"dir": "s"
+		}
+	],
+	"customFields" : {},
+	"layers": [
+		"Tiles.png"
+	],
+	"entities" : {}
+}
