@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 {
 	[SerializeField] private int maxHealth = 100;
 	[SerializeField] public int currentHealth;
+	[SerializeField] public GameOver gameOver;
+	[SerializeField] public GameObject gameOverManager;
 	Animator animator;
 	public bool isDead;
 	// Start is called before the first frame update
@@ -19,7 +21,11 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-
+		gameOverManager = GameObject.FindWithTag("GameOverManager");
+		if (gameOverManager != null)
+		{
+			gameOver = gameOverManager.GetComponent<GameOver>();
+		}
 	}
 
 	public void TakeDamage(int damage)
@@ -36,9 +42,9 @@ public class Player : MonoBehaviour
 	{
 		isDead = true;
 		animator.SetBool("IsDead", isDead);
-
-		Scene currentScene = SceneManager.GetActiveScene();
-		string currentSceneName = currentScene.name;
-		SceneManager.LoadScene(currentSceneName);
+		gameOver.GameOverScreen();
+		//Scene currentScene = SceneManager.GetActiveScene();
+		//string currentSceneName = currentScene.name;
+		//SceneManager.LoadScene(currentSceneName);
 	}
 }

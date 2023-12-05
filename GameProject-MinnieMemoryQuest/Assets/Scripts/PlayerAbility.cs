@@ -28,6 +28,7 @@ public class PlayerAbility : MonoBehaviour
 		foreach(Collider2D enemy in hitEnemies)
 		{
 			enemy.GetComponent<Enemies>().TakeDamage(attackDamage);
+			enemy.GetComponent<BossLv2>().TakeDamage(attackDamage);
 		}
 	}
 
