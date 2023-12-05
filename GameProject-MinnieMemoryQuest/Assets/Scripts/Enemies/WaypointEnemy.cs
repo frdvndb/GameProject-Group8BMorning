@@ -35,12 +35,12 @@ public class WaypointEnemy : MonoBehaviour
 			animator.SetFloat("Move", 1f);
 			if (transform.position.x > playerTransform.position.x)
 			{
-				transform.localScale = new Vector3(-1, 1, 1);
+				transform.localScale = new Vector3(1, 1, 1);
 				transform.position += Vector3.left * moveSpeed * Time.deltaTime;
 			}
 			if (transform.position.x < playerTransform.position.x)
 			{
-				transform.localScale = new Vector3(1, 1, 1);
+				transform.localScale = new Vector3(-1, 1, 1);
 				transform.position += Vector3.right * moveSpeed * Time.deltaTime;
 			}
 		}
@@ -56,7 +56,7 @@ public class WaypointEnemy : MonoBehaviour
 				transform.position = Vector2.MoveTowards(transform.position, wayPoints[0].position, moveSpeed * Time.deltaTime);
 				if (Vector2.Distance(transform.position, wayPoints[0].position) < .2f)
 				{
-					transform.localScale = new Vector3(1, 1, 1);
+					transform.localScale = new Vector3(-1, 1, 1);
 					wayDestination = 1;
 				}
 			}
@@ -66,7 +66,7 @@ public class WaypointEnemy : MonoBehaviour
 				transform.position = Vector2.MoveTowards(transform.position, wayPoints[1].position, moveSpeed * Time.deltaTime);
 				if (Vector2.Distance(transform.position, wayPoints[1].position) < .2f)
 				{
-					transform.localScale = new Vector3(-1, 1, 1);
+					transform.localScale = new Vector3(1, 1, 1);
 					wayDestination = 0;
 				}
 			}

@@ -5,17 +5,28 @@ using UnityEngine.UI;
 
 public class UIHealth : MonoBehaviour
 {
-    public Image healthBar;
-    public PlayerHealth health;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	[SerializeField] private Image healthBar;
+	[SerializeField] private Player playerHealth;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	// Start is called before the first frame update
+	void Start()
+	{
+
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+		GameObject playerObject = GameObject.FindWithTag("Player");
+
+		if (playerObject != null)
+		{
+			playerHealth = playerObject.GetComponent<Player>();
+		}
+
+		if (playerHealth != null)
+		{
+			healthBar.fillAmount = playerHealth.currentHealth / 100f;
+		}
+	}
 }

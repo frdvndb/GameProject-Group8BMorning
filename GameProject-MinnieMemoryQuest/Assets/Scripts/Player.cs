@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
 	[SerializeField] private int maxHealth = 100;
-	[SerializeField] private int currentHealth;
+	[SerializeField] public int currentHealth;
 	Animator animator;
 	public bool isDead;
 	// Start is called before the first frame update
