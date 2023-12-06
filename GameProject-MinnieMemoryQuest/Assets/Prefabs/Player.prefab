@@ -190,7 +190,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.016052067, y: 0.031007767}
+  m_Offset: {x: 0.016052067, y: 0.086772025}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -201,7 +201,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.73173773, y: 1.2657046}
+  m_Size: {x: 0.73173773, y: 1.1541761}
   m_EdgeRadius: 0
 --- !u!61 &585812225470259024
 BoxCollider2D:
@@ -235,7 +235,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03662914, y: -0.4827543}
+  m_Offset: {x: 0.075873375, y: -0.51208663}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -246,7 +246,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.70317423, y: 0.26355004}
+  m_Size: {x: 0.57952213, y: 0.24886665}
   m_EdgeRadius: 0
 --- !u!114 &5518455368038778634
 MonoBehaviour:
@@ -325,6 +325,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  gameOver: {fileID: 0}
+  gameOverManager: {fileID: 0}
   isDead: 0
 --- !u!1 &9106312807270965567
 GameObject:

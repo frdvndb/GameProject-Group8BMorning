@@ -366,9 +366,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 374
-        y: 245
+        y: 256
         width: 191
-        height: 181
+        height: 170
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -836,38 +836,38 @@ TextureImporter:
     nameFileIdTable:
       pixil-frame-0(lv1) 1_0: -981559266
       pixil-frame-0(lv1) 1_1: -1164903835
-      pixil-frame-0(lv1) 1_10: 809678179
-      pixil-frame-0(lv1) 1_11: 1456780160
-      pixil-frame-0(lv1) 1_12: 979751979
-      pixil-frame-0(lv1) 1_13: 2066720628
-      pixil-frame-0(lv1) 1_14: -1474196335
-      pixil-frame-0(lv1) 1_15: -1630306148
-      pixil-frame-0(lv1) 1_16: -612582771
-      pixil-frame-0(lv1) 1_17: 1201484503
-      pixil-frame-0(lv1) 1_18: 1154508430
-      pixil-frame-0(lv1) 1_19: -56380150
-      pixil-frame-0(lv1) 1_2: -1376083440
-      pixil-frame-0(lv1) 1_20: 2130790400
-      pixil-frame-0(lv1) 1_21: 14302616
-      pixil-frame-0(lv1) 1_22: -47788506
-      pixil-frame-0(lv1) 1_23: 876744176
-      pixil-frame-0(lv1) 1_24: -243420151
-      pixil-frame-0(lv1) 1_25: 521133826
-      pixil-frame-0(lv1) 1_26: 1065858178
-      pixil-frame-0(lv1) 1_27: 785590828
-      pixil-frame-0(lv1) 1_28: -1497649003
-      pixil-frame-0(lv1) 1_29: 810610935
-      pixil-frame-0(lv1) 1_3: 636549452
-      pixil-frame-0(lv1) 1_30: 613931067
-      pixil-frame-0(lv1) 1_31: -1931919644
-      pixil-frame-0(lv1) 1_32: 587190074
-      pixil-frame-0(lv1) 1_33: 889311994
-      pixil-frame-0(lv1) 1_4: -1692957586
-      pixil-frame-0(lv1) 1_5: 1567949237
-      pixil-frame-0(lv1) 1_6: -366848782
-      pixil-frame-0(lv1) 1_7: -303031986
-      pixil-frame-0(lv1) 1_8: -293533483
-      pixil-frame-0(lv1) 1_9: 680152282
+      pixil-frame-0(lv1) 1_10: -1376083440
+      pixil-frame-0(lv1) 1_11: 636549452
+      pixil-frame-0(lv1) 1_12: -1692957586
+      pixil-frame-0(lv1) 1_13: 1567949237
+      pixil-frame-0(lv1) 1_14: -366848782
+      pixil-frame-0(lv1) 1_15: -303031986
+      pixil-frame-0(lv1) 1_16: -293533483
+      pixil-frame-0(lv1) 1_17: 680152282
+      pixil-frame-0(lv1) 1_18: 809678179
+      pixil-frame-0(lv1) 1_19: 1456780160
+      pixil-frame-0(lv1) 1_2: 979751979
+      pixil-frame-0(lv1) 1_20: 2066720628
+      pixil-frame-0(lv1) 1_21: -1474196335
+      pixil-frame-0(lv1) 1_22: -1630306148
+      pixil-frame-0(lv1) 1_23: -612582771
+      pixil-frame-0(lv1) 1_24: 1201484503
+      pixil-frame-0(lv1) 1_25: 1154508430
+      pixil-frame-0(lv1) 1_26: -56380150
+      pixil-frame-0(lv1) 1_27: 2130790400
+      pixil-frame-0(lv1) 1_28: 14302616
+      pixil-frame-0(lv1) 1_29: -47788506
+      pixil-frame-0(lv1) 1_3: 876744176
+      pixil-frame-0(lv1) 1_30: -243420151
+      pixil-frame-0(lv1) 1_31: 521133826
+      pixil-frame-0(lv1) 1_32: 1065858178
+      pixil-frame-0(lv1) 1_33: 785590828
+      pixil-frame-0(lv1) 1_4: -1497649003
+      pixil-frame-0(lv1) 1_5: 810610935
+      pixil-frame-0(lv1) 1_6: 613931067
+      pixil-frame-0(lv1) 1_7: -1931919644
+      pixil-frame-0(lv1) 1_8: 587190074
+      pixil-frame-0(lv1) 1_9: 889311994
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
