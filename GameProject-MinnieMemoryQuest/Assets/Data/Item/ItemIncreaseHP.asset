@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ItemIncreaseHP
   m_EditorClassIdentifier: 
   itemName: ItemIncreaseHP
-  itemIcon: {fileID: -716424211456008518, guid: b1f24b3bc2e2f1d4b858657ad5c115a0, type: 3}
+  itemIcon: {fileID: 21300000, guid: fc82f1cb671935d4d9447f7a44e44289, type: 3}

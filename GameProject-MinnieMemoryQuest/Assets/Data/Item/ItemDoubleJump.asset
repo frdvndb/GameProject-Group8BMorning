@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ItemDoubleJump
   m_EditorClassIdentifier: 
   itemName: ItemDoubleJump
-  itemIcon: {fileID: 9139289913481491577, guid: 1ddc9afd21fec77489b1248d18f31b68, type: 3}
+  itemIcon: {fileID: 21300000, guid: e5c108d23f7206240acd88ca4f28df75, type: 3}

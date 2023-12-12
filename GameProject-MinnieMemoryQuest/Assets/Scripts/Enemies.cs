@@ -6,6 +6,7 @@ public class Enemies : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int currentHealth;
+    [SerializeField] private Scoreboard scoreboard;
     Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class Enemies : MonoBehaviour
         animator.SetTrigger("Hurt");
         if (currentHealth <= 0)
         {
+            scoreboard.enemiesDefeated++;
             Die();
         }
     }
@@ -35,6 +37,5 @@ public class Enemies : MonoBehaviour
         animator.SetBool("IsDead", true);
         GetComponent<Collider2D>().enabled = false;
 		Destroy(this.gameObject);
-
 	}
 }

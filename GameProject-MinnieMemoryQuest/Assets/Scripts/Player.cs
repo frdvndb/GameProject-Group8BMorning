@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-	[SerializeField] private int maxHealth = 100;
+	[SerializeField] public int maxHealth = 100;
 	[SerializeField] public int currentHealth;
 	[SerializeField] public GameOver gameOver;
 	[SerializeField] public GameObject gameOverManager;
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 	public void TakeDamage(int damage)
 	{
 		currentHealth -= damage;
-		animator.SetTrigger("Hurt");
+		//animator.SetTrigger("Hurt");
 		if (currentHealth <= 0)
 		{
 			Die();
@@ -40,11 +40,14 @@ public class Player : MonoBehaviour
 
 	public void Die()
 	{
-		isDead = true;
-		animator.SetBool("IsDead", isDead);
-		gameOver.GameOverScreen();
+		//isDead = true;
+		animator.SetBool("IsDead", true);
 		//Scene currentScene = SceneManager.GetActiveScene();
 		//string currentSceneName = currentScene.name;
 		//SceneManager.LoadScene(currentSceneName);
+	}
+	public void DieEvent()
+	{
+		gameOver.GameOverScreen();
 	}
 }

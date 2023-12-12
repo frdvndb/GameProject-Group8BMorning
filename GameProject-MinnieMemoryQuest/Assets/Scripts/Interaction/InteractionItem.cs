@@ -9,6 +9,7 @@ public class InteractionItem : Interaction
 {
 	[SerializeField] private Inventory inventory;
 	[SerializeField] private Item itemToAdd;
+	[SerializeField] private Animator animator;
 	public GameObject player;
 
 	protected override void OnInteract()
@@ -16,6 +17,7 @@ public class InteractionItem : Interaction
 		base.OnInteract();
 		inventory.AddItem(itemToAdd);
 		DisableInteract();
+		animator.SetBool("IsOpen", true);
 		if (inventory.HasItem(itemToAdd))
 		{
 			player = GameObject.FindWithTag("Player");

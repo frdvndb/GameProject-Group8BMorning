@@ -7,10 +7,15 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class GameOver : MonoBehaviour
 {
-	[SerializeField] private Score scoreOriginal;
 	[SerializeField] private GameObject gameOverUI;
+	[SerializeField] private Score scoreOriginal;
+	[SerializeField] private UITimer timeOriginal;
 	[SerializeField] private TextMeshProUGUI scoreText;
-	private int scoreGameOver;
+	[SerializeField] private TextMeshProUGUI timeText;
+	[SerializeField] private TextMeshProUGUI enemiesDefeatedText;
+	[SerializeField] private Scoreboard scoreBoard;
+	private float timeTemporary;
+	private int scoreTemporary;
 	// Start is called before the first frame update
 	void Start()
     {
@@ -21,9 +26,11 @@ public class GameOver : MonoBehaviour
 	{
 		Time.timeScale = 0f;
 		gameOverUI.SetActive(true);
-		scoreGameOver = scoreOriginal.score;
-		scoreText.text = "Scores = " + scoreGameOver;
-
+		scoreTemporary = scoreOriginal.score;
+		scoreText.text = "Scores = " + scoreTemporary;
+		timeTemporary = timeOriginal.timeRemaining;
+		timeText.text = "Times : " + timeTemporary;
+		enemiesDefeatedText.text = "Enemies Defeated : " + scoreBoard.enemiesDefeated;
 	}
 
 	public void TryAgain()

@@ -6,37 +6,36 @@ public class BossLv2_Ability : MonoBehaviour
 {
 	private Animator animator;
 	[SerializeField] Transform attackPoint;
-	[SerializeField] float attackRange = 3f;
+	[SerializeField] float attackRange = 1f;
 	[SerializeField] LayerMask playerLayers;
-	[SerializeField] int attackDamage = 30;
-	[SerializeField] float attackRate = 2f;
-
-	private float nextAttackTime = 0f;
+	[SerializeField] int attackDamage = 40;
 	private bool playerInRange = false;
+
+	[SerializeField] private float cooldownAttack = 1.5f;
+	private float lastAttack;
+	public bool isAttacking;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		animator = GetComponent<Animator>();
+		attackDamage = attackDamage / 2;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		Debug.Log("Player in range: " + playerInRange);
-		Debug.Log("Next attack time: " + nextAttackTime);
-
-		if (playerInRange && Time.time >= nextAttackTime)
+		if (playerInRange && Time.time - lastAttack >= cooldownAttack && !isAttacking)
 		{
 			Debug.Log("Attacking!");
+			lastAttack = Time.time;
 			Attack();
-			nextAttackTime = Time.time + 2f / attackRate;
 		}
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.CompareTag("Player"))
+		if (collision.gameObject.tag == "Player")
 		{
 			Debug.Log("Player entered range.");
 			playerInRange = true;
@@ -54,14 +53,22 @@ public class BossLv2_Ability : MonoBehaviour
 
 	public void Attack()
 	{
-		Debug.Log("Performing attack!");
-		animator.SetFloat("Move", 0f);
 		animator.SetTrigger("Attack");
+	}
+
+	public void AttackEvent()
+	{
+		isAttacking = true;
 		Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayers);
 		foreach (Collider2D player in hitPlayers)
 		{
 			player.GetComponent<Player>().TakeDamage(attackDamage);
 		}
+	}
+
+	public void EndAttackEvent()
+	{
+		isAttacking = false;
 	}
 
 	public void OnDrawGizmosSelected()
