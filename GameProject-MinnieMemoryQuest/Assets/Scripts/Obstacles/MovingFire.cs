@@ -20,7 +20,7 @@ public class MovingFire : MonoBehaviour
 	{
 		if (movingFireType == "horizontal")
 		{
-			animator.SetFloat("Move", 1f);
+			//animator.SetFloat("Move", 1f);
 			if (wayDestination == 0)
 			{
 				transform.position = Vector2.MoveTowards(transform.position, wayPoints[0].position, moveSpeed * Time.deltaTime);
@@ -44,7 +44,7 @@ public class MovingFire : MonoBehaviour
 
 		if (movingFireType == "vertical")
 		{
-			animator.SetFloat("Move", 1f);
+			//animator.SetFloat("Move", 1f);
 			if (wayDestination == 0)
 			{
 				transform.position = Vector2.MoveTowards(transform.position, wayPoints[0].position, moveSpeed * Time.deltaTime);

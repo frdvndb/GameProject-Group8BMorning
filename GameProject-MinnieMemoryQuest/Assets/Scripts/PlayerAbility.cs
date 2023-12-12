@@ -4,32 +4,65 @@ using UnityEngine;
 
 public class PlayerAbility : MonoBehaviour
 {
-    [SerializeField] private PlayerAudio playerAudio;
-    [SerializeField] private KeyCode keyCodeSus = KeyCode.E;
+    //[SerializeField] private PlayerAudio playerAudio;
+    //[SerializeField] private KeyCode keyCodeSus = KeyCode.E;
 	[SerializeField] private KeyCode keyCodeAttack = KeyCode.R;
 	private Animator animator;
 	[SerializeField] Transform attackPoint;
 	[SerializeField] float attackRange = 0.5f;
 	[SerializeField] LayerMask enemyLayers;
-	[SerializeField] int attackDamage = 20;
-	[SerializeField] float attackRate = 2f;
-	[SerializeField] float nextAttackTime = 0f;
+	[SerializeField] public int attackDamage = 20;
+	[SerializeField] private PlayerController playerController;
+	//[SerializeField] private float cooldownAttack = 1f;
+	//private float lastAttack;
+	public bool isAttacking;
 
-    // Start is called before the first frame update
-    public void Sus()
-    {
-        playerAudio.PlaySusRandom();
-    }
+	// Start is called before the first frame update
+	//public void Sus()
+	//   {
+	//       playerAudio.PlaySusRandom();
+	//   }
 
 	public void Attack()
 	{
-        animator.SetTrigger("Attack");
-		Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-		foreach(Collider2D enemy in hitEnemies)
+		//if (Time.time-lastAttack < cooldownAttack)
+		//{
+		//	return;
+		//}
+		//lastAttack = Time.time;
+		if (playerController.onGround == true && !isAttacking)
 		{
-			enemy.GetComponent<Enemies>().TakeDamage(attackDamage);
-			enemy.GetComponent<BossLv2>().TakeDamage(attackDamage);
+			isAttacking = true;
+			animator.SetTrigger("Attack");
 		}
+	}
+	public void AttackEvent()
+	{
+		Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+		foreach (Collider2D enemy in hitEnemies)
+		{
+			BossLv1 bossLv1Component = enemy.GetComponent<BossLv1>();
+			BossLv2 bossLv2Component = enemy.GetComponent<BossLv2>();
+			Enemies enemiesComponent = enemy.GetComponent<Enemies>();
+
+			if (bossLv1Component != null)
+			{
+				bossLv1Component.TakeDamage(attackDamage);
+			}
+			else if (bossLv2Component != null)
+			{
+				bossLv2Component.TakeDamage(attackDamage);
+			}
+			else if (enemiesComponent != null)
+			{
+				enemiesComponent.TakeDamage(attackDamage);
+			}
+		}
+	}
+
+	public void EndAttackEvent()
+	{
+		isAttacking = false;
 	}
 
 	public void OnDrawGizmosSelected()
@@ -47,19 +80,19 @@ public class PlayerAbility : MonoBehaviour
 	void Start()
 	{
 		animator = GetComponent<Animator>();
+		attackDamage = attackDamage / 2;
 	}
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(keyCodeSus))
-        {
-            Sus();
-        }
+		//if (Input.GetKeyDown(keyCodeSus))
+  //      {
+  //          Sus();
+  //      }
 
-		if (Time.time >= nextAttackTime && Input.GetKeyDown(keyCodeAttack))
+		if (Input.GetKeyDown(keyCodeAttack))
 		{
 			Attack();
-			nextAttackTime = Time.time + 1f / attackRate;
 		}
 	}
 }

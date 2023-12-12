@@ -45,6 +45,6 @@ public class Interaction : MonoBehaviour
 	protected void DisableInteract()
 	{
 		InteractUI.SetActive(false);
-		gameObject.SetActive(false);
+		//gameObject.SetActive(false);
 	}
 }

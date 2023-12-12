@@ -7,6 +7,8 @@ public class UIHealth : MonoBehaviour
 {
 	[SerializeField] private Image healthBar;
 	[SerializeField] private Player playerHealth;
+	[SerializeField] private Slider sliderHealth;
+
 
 	// Start is called before the first frame update
 	void Start()
@@ -26,7 +28,8 @@ public class UIHealth : MonoBehaviour
 
 		if (playerHealth != null)
 		{
-			healthBar.fillAmount = playerHealth.currentHealth / 100f;
+			sliderHealth.maxValue = playerHealth.maxHealth;
+			sliderHealth.value = playerHealth.currentHealth;
 		}
 	}
 }

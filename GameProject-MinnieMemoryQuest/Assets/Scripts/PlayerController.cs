@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-	float hAxis;
+	public float hAxis;
 	Vector2 walkDirection;
 	Vector2 jumpDirection;
 	bool hasDoubleJump = false;
@@ -13,14 +13,14 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private Rigidbody2D rb;
 	[SerializeField] private float walkSpeed = 5f;
 	[SerializeField] private float jumpPower = 8f;
-	[SerializeField] private bool onGround = false;
+	[SerializeField] public bool onGround = false;
 	[SerializeField] private int maxJumpCount = 2;
 	[SerializeField] private PlayerAbility playerAbility;
+	[SerializeField] private Player player;
 	private int jumpCount;
 	public bool allowMove = true;
 
 	public bool AllowMove { set { allowMove = value; } get { return allowMove; } }
-
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (allowMove)
+		if (allowMove && !playerAbility.isAttacking)
 		{
 			Move();
 			Jump();
@@ -112,5 +112,15 @@ public class PlayerController : MonoBehaviour
 	public void getItemDoubleJump()
 	{
 		hasDoubleJump = true;
+	}
+
+	public void getItemIncreaseHP()
+	{
+		player.currentHealth = player.currentHealth + 50;
+	}
+
+	public void getItemIncreaseAttack()
+	{
+		playerAbility.attackDamage = playerAbility.attackDamage + 10;
 	}
 }
