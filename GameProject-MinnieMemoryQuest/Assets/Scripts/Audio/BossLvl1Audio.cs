@@ -20,4 +20,14 @@ public class BossLvl1Audio : MonoBehaviour
 	{
 		audioSource.PlayOneShot(clipAudio[2]);
 	}
+
+	public void audioWalk()
+	{
+		audioSource.Play();
+	}
+
+	public void Start()
+	{
+		audioSource.clip = clipAudio[3];
+	}
 }

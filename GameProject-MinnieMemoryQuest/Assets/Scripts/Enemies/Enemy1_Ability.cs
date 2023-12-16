@@ -12,7 +12,7 @@ public class Enemy1_Ability : MonoBehaviour
 	[SerializeField] float attackRate = 2f;
 
 	private float nextAttackTime = 0f;
-	private bool playerInRange = false;
+	public bool playerInRange = false;
 	public bool isAttacking;
 
 	// Start is called before the first frame update

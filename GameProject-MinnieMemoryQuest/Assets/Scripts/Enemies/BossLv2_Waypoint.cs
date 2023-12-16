@@ -32,7 +32,7 @@ public class BossLv2_Waypoint : MonoBehaviour
 				playerTransform = player.transform;
 			}
 		}
-		if (isChasing && !bossLv2Ability.isAttacking && !bossLv2.isDead)
+		if (isChasing && !bossLv2Ability.isAttacking && !bossLv2.isDead && !bossLv2Ability.playerInRange)
 		{
 			animator.SetFloat("Move", 1f);
 			if (transform.position.x > playerTransform.position.x)
@@ -49,7 +49,7 @@ public class BossLv2_Waypoint : MonoBehaviour
 		else if (!bossLv2Ability.isAttacking && !bossLv2.isDead)
 		{
 			animator.SetFloat("Move", 1f);
-			if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
+			if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance && !bossLv2Ability.playerInRange)
 			{
 				isChasing = true;
 			}

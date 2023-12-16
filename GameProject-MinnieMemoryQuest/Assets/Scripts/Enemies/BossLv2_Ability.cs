@@ -9,7 +9,7 @@ public class BossLv2_Ability : MonoBehaviour
 	[SerializeField] float attackRange = 1f;
 	[SerializeField] LayerMask playerLayers;
 	[SerializeField] int attackDamage = 40;
-	private bool playerInRange = false;
+	public bool playerInRange = false;
 
 	[SerializeField] private float cooldownAttack = 1.5f;
 	private float lastAttack;

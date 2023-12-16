@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 1147250591179666547}
   - component: {fileID: 5972193041453125373}
   - component: {fileID: 2812113865669044945}
+  - component: {fileID: 8641160157313594998}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -109,7 +110,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 7da8cdfb4722ffb40a627b4554836e1e, type: 2}
@@ -273,6 +274,8 @@ MonoBehaviour:
   player: {fileID: 7076485441507268770}
   playerAudio: {fileID: 1147250591179666547}
   allowMove: 1
+  doubleJump: 0
+  isJumping: 1
 --- !u!114 &5194608796346617904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,6 +335,7 @@ MonoBehaviour:
   gameOver: {fileID: 0}
   gameOverManager: {fileID: 0}
   isDead: 0
+  animator2: {fileID: 0}
 --- !u!114 &1147250591179666547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,6 +548,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!81 &8641160157313594998
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4002305734873538738}
+  m_Enabled: 1
 --- !u!1 &9106312807270965567
 GameObject:
   m_ObjectHideFlags: 0

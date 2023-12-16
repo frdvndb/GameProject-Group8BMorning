@@ -33,7 +33,7 @@ public class WaypointEnemy : MonoBehaviour
 				playerTransform = player.transform;
 			}
 		}
-		if (isChasing && !enemy1Ability.isAttacking && !enemies.isDead)
+		if (isChasing && !enemy1Ability.isAttacking && !enemies.isDead && !enemy1Ability.playerInRange)
         {
 			animator.SetFloat("Move", 1f);
 			if (transform.position.x > playerTransform.position.x)
@@ -47,7 +47,7 @@ public class WaypointEnemy : MonoBehaviour
 				transform.position += Vector3.right * moveSpeed * Time.deltaTime;
 			}
 		}
-        else if (!enemy1Ability.isAttacking && !enemies.isDead)
+        else if (!enemy1Ability.isAttacking && !enemies.isDead && !enemy1Ability.playerInRange)
         {
 			animator.SetFloat("Move", 1f);
 			if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)

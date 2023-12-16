@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,8 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private PlayerAudio playerAudio;
 	private int jumpCount;
 	public bool allowMove = true;
+	public bool doubleJump;
+	public bool isJumping = true;
 
 	public bool AllowMove { set { allowMove = value; } get { return allowMove; } }
 	// Start is called before the first frame update
@@ -27,6 +30,7 @@ public class PlayerController : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
+		jumpCount = maxJumpCount;
 	}
 
 	// Update is called once per frame
@@ -44,6 +48,7 @@ public class PlayerController : MonoBehaviour
 
 		Animations();
 		Facing();
+		animator.SetFloat("yVelocity", rb.velocity.y);
 
 	}
 
@@ -51,19 +56,19 @@ public class PlayerController : MonoBehaviour
 	{
 		jumpDirection = new Vector2(0, 1);
 		
-		if (onGround == true && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)))
+		if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && jumpCount > 0 && isJumping)
 		{
+			isJumping = false;
+			onGround = false;
 			playerAudio.audioJump();
 			animator.SetTrigger("Jump");
-			rb.velocity = jumpDirection * jumpPower;
-			jumpCount++;
+			rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+			jumpCount -= 1;
+
 		}
-		if (onGround == false && hasDoubleJump == true && jumpCount < maxJumpCount && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)))
+		if (rb.velocity.y < 0)
 		{
-			playerAudio.audioJump();
-			animator.SetTrigger("Jump");
-			rb.velocity = jumpDirection * (jumpPower-2f);
-			jumpCount++;
+			isJumping = true;
 		}
 	}
 
@@ -97,10 +102,17 @@ public class PlayerController : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.tag == "Ground")
+		if (col.tag == "Ground" || col.tag == "GroundEnemy")
 		{
 			onGround = true;
-			jumpCount = 0;
+			if (!hasDoubleJump)
+			{
+				jumpCount = 1;
+			}
+			if (hasDoubleJump)
+			{
+				jumpCount = maxJumpCount;
+			}
 		}
 	}
 

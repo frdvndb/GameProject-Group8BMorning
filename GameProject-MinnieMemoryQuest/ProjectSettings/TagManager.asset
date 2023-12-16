@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - GameOverManager
+  - GroundEnemy
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Enemies
   - Player
   - BossLv1
-  - 
+  - PostProcessing
   - 
   - 
   - 
