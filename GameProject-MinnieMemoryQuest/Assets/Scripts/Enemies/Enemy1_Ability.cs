@@ -13,22 +13,20 @@ public class Enemy1_Ability : MonoBehaviour
 
 	private float nextAttackTime = 0f;
 	private bool playerInRange = false;
+	public bool isAttacking;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		animator = GetComponent<Animator>();
+		attackDamage = attackDamage / 2;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		Debug.Log("Player in range: " + playerInRange);
-		Debug.Log("Next attack time: " + nextAttackTime);
-
-		if (playerInRange && Time.time >= nextAttackTime)
+		if (playerInRange && Time.time >= nextAttackTime && !isAttacking)
 		{
-			Debug.Log("Attacking!");
 			Attack();
 			nextAttackTime = Time.time + 2f / attackRate;
 		}
@@ -54,14 +52,22 @@ public class Enemy1_Ability : MonoBehaviour
 
 	public void Attack()
 	{
-		Debug.Log("Performing attack!");
-		animator.SetFloat("Move", 0f);
 		animator.SetTrigger("Attack");
+	}
+
+	public void AttackEvent()
+	{
+		isAttacking = true;
 		Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayers);
 		foreach (Collider2D player in hitPlayers)
 		{
 			player.GetComponent<Player>().TakeDamage(attackDamage);
 		}
+	}
+
+	public void EndAttackEvent()
+	{
+		isAttacking = false;
 	}
 
 	public void OnDrawGizmosSelected()

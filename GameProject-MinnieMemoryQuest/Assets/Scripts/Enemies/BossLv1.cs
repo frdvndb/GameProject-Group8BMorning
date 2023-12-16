@@ -8,6 +8,8 @@ public class BossLv1 : MonoBehaviour
 	[SerializeField] private int currentHealth;
 	[SerializeField] private Scoreboard scoreboard;
 	Animator animator;
+	public bool isDead;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -34,6 +36,7 @@ public class BossLv1 : MonoBehaviour
 
 	private void Die()
 	{
+		isDead = true;
 		animator.SetBool("IsDead", true);
 	}
 	public void DieEvent()

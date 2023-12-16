@@ -7,7 +7,13 @@ public class BossLv2 : MonoBehaviour
 	[SerializeField] private int maxHealth = 550;
 	[SerializeField] private int currentHealth;
 	[SerializeField] private Scoreboard scoreboard;
+	[SerializeField] private GameObject persistent;
+	[SerializeField] private Persistent persistentScript;
+
+
 	Animator animator;
+	public bool isDead;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -18,7 +24,11 @@ public class BossLv2 : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-
+		if (persistent == null)
+		{
+			persistent = GameObject.Find("Persistent");
+			persistentScript = persistent.GetComponent<Persistent>();
+		}
 	}
 
 	public void TakeDamage(int damage)
@@ -34,6 +44,8 @@ public class BossLv2 : MonoBehaviour
 
 	private void Die()
 	{
+		isDead = true;
+		persistentScript.IsLevel2Unlocked = true;
 		animator.SetBool("IsDead", true);
 	}
 	public void DieEvent()

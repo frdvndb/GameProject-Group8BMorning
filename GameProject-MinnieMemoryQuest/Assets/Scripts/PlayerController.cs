@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private int maxJumpCount = 2;
 	[SerializeField] private PlayerAbility playerAbility;
 	[SerializeField] private Player player;
+	[SerializeField] private PlayerAudio playerAudio;
 	private int jumpCount;
 	public bool allowMove = true;
 
@@ -52,13 +53,15 @@ public class PlayerController : MonoBehaviour
 		
 		if (onGround == true && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)))
 		{
-			playerAbility.Jump();
+			playerAudio.audioJump();
+			animator.SetTrigger("Jump");
 			rb.velocity = jumpDirection * jumpPower;
 			jumpCount++;
 		}
 		if (onGround == false && hasDoubleJump == true && jumpCount < maxJumpCount && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)))
 		{
-			playerAbility.Jump();
+			playerAudio.audioJump();
+			animator.SetTrigger("Jump");
 			rb.velocity = jumpDirection * (jumpPower-2f);
 			jumpCount++;
 		}

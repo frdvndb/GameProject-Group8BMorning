@@ -16,6 +16,8 @@ public class Scoreboard : MonoBehaviour
 	public int enemiesDefeated;
 	private int scoreTemporary;
 	private float timeTemporary;
+	[SerializeField] private AudioSource audioSource;
+	[SerializeField] private AudioClip clipWin;
 	// Start is called before the first frame update
 	void Start()
     {
@@ -31,6 +33,7 @@ public class Scoreboard : MonoBehaviour
 	{
 		Time.timeScale = 0f;
 		scoreboardMenu.SetActive(true);
+		audioSource.PlayOneShot(clipWin);
 		scoreTemporary = scoreOriginal.score;
 		scoreText.text = "Scores : " + scoreTemporary;
 		timeTemporary = timeOriginal.timeRemaining;

@@ -72,11 +72,6 @@ public class PlayerAbility : MonoBehaviour
 		Gizmos.DrawWireSphere(attackPoint.position, attackRange);
 	}
 
-	public void Jump()
-    {
-		animator.SetTrigger("Jump");
-	}
-
 	void Start()
 	{
 		animator = GetComponent<Animator>();

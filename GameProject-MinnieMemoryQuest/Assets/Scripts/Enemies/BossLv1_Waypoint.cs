@@ -15,10 +15,11 @@ public class BossLv1_Waypoint : MonoBehaviour
 	[SerializeField] float chaseDistance = 2f;
 	[SerializeField] private Animator animator;
 	[SerializeField] private BossLv1_Ability bossLv1Ability;
+	[SerializeField] private BossLv1 bossLv1;
 	// Start is called before the first frame update
 	void Start()
 	{
-
+		bossLv1 = GetComponent<BossLv1>();
 	}
 
 	// Update is called once per frame
@@ -32,7 +33,7 @@ public class BossLv1_Waypoint : MonoBehaviour
 				playerTransform = player.transform;
 			}
 		}
-		if (isChasing)
+		if (isChasing && !bossLv1Ability.isAttacking && !bossLv1.isDead)
 		{
 			animator.SetFloat("Move", 1f);
 			if (transform.position.x > playerTransform.position.x)
@@ -46,8 +47,7 @@ public class BossLv1_Waypoint : MonoBehaviour
 				transform.position += Vector3.right * moveSpeed * Time.deltaTime;
 			}
 		}
-		//if (!bossLv1Ability.isAttacking)
-		else
+		else if(!bossLv1Ability.isAttacking && !bossLv1.isDead)
 		{
 			animator.SetFloat("Move", 1f);
 			if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)

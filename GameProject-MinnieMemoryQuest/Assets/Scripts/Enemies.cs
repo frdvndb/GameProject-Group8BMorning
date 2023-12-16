@@ -8,9 +8,14 @@ public class Enemies : MonoBehaviour
     [SerializeField] private int currentHealth;
     [SerializeField] private Scoreboard scoreboard;
     Animator animator;
-    // Start is called before the first frame update
-    void Start()
+    Enemy1Audio enemyAudio;
+    public bool isDead;
+
+
+	// Start is called before the first frame update
+	void Start()
     {
+        enemyAudio = GetComponent<Enemy1Audio>();
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
     }
@@ -32,10 +37,14 @@ public class Enemies : MonoBehaviour
         }
     }
 
-    private void Die()
-    {
-        animator.SetBool("IsDead", true);
-        GetComponent<Collider2D>().enabled = false;
-		Destroy(this.gameObject);
+	private void Die()
+	{
+        isDead = true;
+		animator.SetBool("IsDead", isDead);
+	}
+	public void DieEvent()
+	{
+		enemyAudio.audioDead();
+        Destroy(gameObject);
 	}
 }

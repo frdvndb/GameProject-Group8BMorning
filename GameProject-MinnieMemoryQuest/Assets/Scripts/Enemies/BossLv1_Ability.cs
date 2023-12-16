@@ -27,7 +27,6 @@ public class BossLv1_Ability : MonoBehaviour
 	{
 		if (playerInRange && Time.time-lastAttack>=cooldownAttack && !isAttacking)
 		{
-			Debug.Log("Attacking!");
 			lastAttack = Time.time;
 			Attack();
 		}

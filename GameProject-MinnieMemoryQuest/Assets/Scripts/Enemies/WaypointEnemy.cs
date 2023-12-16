@@ -13,10 +13,13 @@ public class WaypointEnemy : MonoBehaviour
     [SerializeField] bool isChasing;
     [SerializeField] float chaseDistance = 2f;
 	[SerializeField] private Animator animator;
+	[SerializeField] private Enemy1_Ability enemy1Ability;
+	[SerializeField] private Enemies enemies;
 	// Start is called before the first frame update
 	void Start()
     {
-
+		enemy1Ability = GetComponent<Enemy1_Ability>();
+		enemies = GetComponent<Enemies>();
     }
 
 	// Update is called once per frame
@@ -30,7 +33,7 @@ public class WaypointEnemy : MonoBehaviour
 				playerTransform = player.transform;
 			}
 		}
-		if (isChasing)
+		if (isChasing && !enemy1Ability.isAttacking && !enemies.isDead)
         {
 			animator.SetFloat("Move", 1f);
 			if (transform.position.x > playerTransform.position.x)
@@ -44,7 +47,7 @@ public class WaypointEnemy : MonoBehaviour
 				transform.position += Vector3.right * moveSpeed * Time.deltaTime;
 			}
 		}
-        else
+        else if (!enemy1Ability.isAttacking && !enemies.isDead)
         {
 			animator.SetFloat("Move", 1f);
 			if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
