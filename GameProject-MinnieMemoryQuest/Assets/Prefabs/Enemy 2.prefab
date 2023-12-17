@@ -140,6 +140,7 @@ MonoBehaviour:
   currentHealth: 0
   scoreboard: {fileID: 0}
   isDead: 0
+  enemyIsDead: 0
 --- !u!95 &2771983817994106909
 Animator:
   serializedVersion: 5
@@ -218,6 +219,7 @@ MonoBehaviour:
     m_Bits: 128
   attackDamage: 30
   attackRate: 2
+  enemies: {fileID: 0}
   playerInRange: 0
   isAttacking: 0
 --- !u!61 &7497300151650090517
@@ -285,7 +287,7 @@ MonoBehaviour:
   player: {fileID: 0}
   playerTransform: {fileID: 0}
   isChasing: 0
-  chaseDistance: 2
+  chaseDistance: 4
   animator: {fileID: 2771983817994106909}
   enemy1Ability: {fileID: 0}
   enemies: {fileID: 0}

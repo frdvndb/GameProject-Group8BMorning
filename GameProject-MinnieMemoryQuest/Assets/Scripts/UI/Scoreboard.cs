@@ -20,6 +20,8 @@ public class Scoreboard : MonoBehaviour
 	[SerializeField] private AudioClip clipWin;
 	[SerializeField] private string scene;
 	[SerializeField] public int fromScore;
+	[SerializeField] private GameObject persistentObject;
+	[SerializeField] private Persistent persistentScript;
 
 	// Start is called before the first frame update
 	void Start()
@@ -31,8 +33,12 @@ public class Scoreboard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
+		if (persistentObject == null)
+		{
+			persistentObject = GameObject.Find("Persistent");
+			persistentScript = persistentObject.GetComponent<Persistent>();
+		}
+	}
 
 	public void addEnemiesToScore()
 	{
@@ -52,6 +58,7 @@ public class Scoreboard : MonoBehaviour
 		else if (scoreTemporary >= 15) { ratingText.text = "B"; }
 		else if(scoreTemporary >= 10){ ratingText.text = "C"; }
 		else if(scoreTemporary < 10) { ratingText.text = "D"; }
+		persistentScript.doubleJumpPlayer(false);
 	}
 
 	public void NextLevel()

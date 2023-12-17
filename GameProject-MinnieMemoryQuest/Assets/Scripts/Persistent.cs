@@ -9,6 +9,7 @@ public class Persistent : MonoBehaviour
 	[SerializeField] public bool IsLevel2Unlocked = false;
 	[SerializeField] private GameObject scoreboard;
 	[SerializeField] private Scoreboard scoreboardScript;
+	[SerializeField] public bool doubleJumpUnlocked = false;
 
 	//[SerializeField] private AudioSource audioSource;
 	//[SerializeField] private AudioClip[] clipAudio;
@@ -41,6 +42,10 @@ public class Persistent : MonoBehaviour
 			scoreboardScript.ShowScoreboard();
 			if (!IsLevel2Unlocked) { IsLevel2Unlocked = true; }
 		}
+	}
 
+	public void doubleJumpPlayer(bool hasDoubleJump)
+	{
+		doubleJumpUnlocked = hasDoubleJump;
 	}
 }

@@ -57,7 +57,7 @@ public class BossLv1_Waypoint : MonoBehaviour
 			if (wayDestination == 0)
 			{
 				transform.position = Vector2.MoveTowards(transform.position, wayPoints[0].position, moveSpeed * Time.deltaTime);
-				if (Vector2.Distance(transform.position, wayPoints[0].position) < .2f)
+				if (Vector2.Distance(transform.position, wayPoints[0].position) < .5f)
 				{
 					transform.localScale = new Vector3(-1, 1, 1);
 					wayDestination = 1;
@@ -67,7 +67,7 @@ public class BossLv1_Waypoint : MonoBehaviour
 			if (wayDestination == 1)
 			{
 				transform.position = Vector2.MoveTowards(transform.position, wayPoints[1].position, moveSpeed * Time.deltaTime);
-				if (Vector2.Distance(transform.position, wayPoints[1].position) < .2f)
+				if (Vector2.Distance(transform.position, wayPoints[1].position) < .5f)
 				{
 					transform.localScale = new Vector3(1, 1, 1);
 					wayDestination = 0;

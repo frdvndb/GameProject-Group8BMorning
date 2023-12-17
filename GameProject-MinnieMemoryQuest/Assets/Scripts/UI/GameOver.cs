@@ -17,9 +17,9 @@ public class GameOver : MonoBehaviour
 	private float timeTemporary;
 	private int scoreTemporary;
 	// Start is called before the first frame update
-	void Start()
+	void Update()
     {
-		
+
 	}
 
 	public void GameOverScreen()
@@ -31,6 +31,8 @@ public class GameOver : MonoBehaviour
 		timeTemporary = timeOriginal.timeRemaining;
 		timeText.text = "Times : " + timeTemporary;
 		enemiesDefeatedText.text = "Enemies Defeated : " + scoreBoard.enemiesDefeated;
+
+
 	}
 
 	public void TryAgain()

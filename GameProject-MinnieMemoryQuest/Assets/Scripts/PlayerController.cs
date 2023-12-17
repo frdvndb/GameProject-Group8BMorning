@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private PlayerAbility playerAbility;
 	[SerializeField] private Player player;
 	[SerializeField] private PlayerAudio playerAudio;
+	[SerializeField] private GameObject persistentObject;
+	[SerializeField] private Persistent persistentScript;
 	//[SerializeField] private ParticleSystem dustEffect;
 	private int jumpCount;
 	public bool allowMove = true;
@@ -50,6 +52,12 @@ public class PlayerController : MonoBehaviour
 		Animations();
 		Facing();
 		animator.SetFloat("yVelocity", rb.velocity.y);
+
+		if (persistentObject == null)
+		{
+			persistentObject = GameObject.Find("Persistent");
+			persistentScript = persistentObject.GetComponent<Persistent>();
+		}
 
 	}
 
@@ -117,7 +125,7 @@ public class PlayerController : MonoBehaviour
 			{
 				jumpCount = 1;
 			}
-			if (hasDoubleJump)
+			if (hasDoubleJump || persistentScript.doubleJumpUnlocked)
 			{
 				jumpCount = maxJumpCount;
 			}
@@ -135,11 +143,12 @@ public class PlayerController : MonoBehaviour
 	public void getItemDoubleJump()
 	{
 		hasDoubleJump = true;
+		persistentScript.doubleJumpPlayer(hasDoubleJump);
 	}
 
 	public void getItemIncreaseHP()
 	{
-		player.currentHealth = player.currentHealth + 50;
+		player.currentHealth = player.currentHealth + 20;
 	}
 
 	public void getItemIncreaseAttack()

@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
 	Animator animator;
 	public bool isDead;
 	[SerializeField] private PlayerAbility playerAbility;
+
 	// Start is called before the first frame update
 	void Start()
 	{
