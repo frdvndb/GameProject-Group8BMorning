@@ -7,15 +7,19 @@ public class Interaction : MonoBehaviour
 {
 
 	[SerializeField] private GameObject InteractUI;
-
+	private Collider2D collider2D;
 	private bool allowInteractUI = false;
+	private bool allowInteractCol = true;
+
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.CompareTag("Player"))
+		if (collision.CompareTag("Player") && allowInteractCol)
 		{
 			InteractUI.SetActive(true);
 			allowInteractUI = true;
+			//collider2D = GetComponent<Collider2D>();
+			//GetComponent<Collider2D>().enabled = false;
 		}
 	}
 
@@ -45,6 +49,7 @@ public class Interaction : MonoBehaviour
 	protected void DisableInteract()
 	{
 		InteractUI.SetActive(false);
-		//gameObject.SetActive(false);
+		allowInteractCol = false;
+		
 	}
 }
