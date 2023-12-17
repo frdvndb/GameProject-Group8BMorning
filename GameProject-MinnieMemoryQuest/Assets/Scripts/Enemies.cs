@@ -10,11 +10,12 @@ public class Enemies : MonoBehaviour
     Animator animator;
     Enemy1Audio enemyAudio;
     public bool isDead;
-
+    WaypointEnemy waypointEnemy;
 
 	// Start is called before the first frame update
 	void Start()
     {
+        waypointEnemy = GetComponent<WaypointEnemy>();
         enemyAudio = GetComponent<Enemy1Audio>();
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
@@ -29,7 +30,8 @@ public class Enemies : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        animator.SetTrigger("Hurt");
+        waypointEnemy.KnockbackEffect();
+		animator.SetTrigger("Hurt");
         if (currentHealth <= 0)
         {
             scoreboard.enemiesDefeated++;

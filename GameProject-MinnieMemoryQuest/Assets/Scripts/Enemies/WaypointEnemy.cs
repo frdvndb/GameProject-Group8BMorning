@@ -15,12 +15,20 @@ public class WaypointEnemy : MonoBehaviour
 	[SerializeField] private Animator animator;
 	[SerializeField] private Enemy1_Ability enemy1Ability;
 	[SerializeField] private Enemies enemies;
+	private Rigidbody2D rb;
+
+	public float KBForce;
+	public float KBCounter;
+	public float KBTotalTime;
+	public bool KnockFromRight;
 	// Start is called before the first frame update
 	void Start()
     {
 		enemy1Ability = GetComponent<Enemy1_Ability>();
 		enemies = GetComponent<Enemies>();
-    }
+		rb = GetComponent<Rigidbody2D>();
+
+	}
 
 	// Update is called once per frame
 	void Update()
@@ -33,7 +41,19 @@ public class WaypointEnemy : MonoBehaviour
 				playerTransform = player.transform;
 			}
 		}
-		if (isChasing && !enemy1Ability.isAttacking && !enemies.isDead && !enemy1Ability.playerInRange)
+		if (KBCounter > 0)
+		{
+			if (KnockFromRight == true)
+			{
+				rb.velocity = new Vector2(KBForce, KBForce);
+			}
+			if (KnockFromRight == false)
+			{
+				rb.velocity = new Vector2(-KBForce, KBForce);
+			}
+			KBCounter -= Time.deltaTime;
+		}
+		if (isChasing && !enemy1Ability.isAttacking && !enemies.isDead && !enemy1Ability.playerInRange && KBCounter <= 0)
         {
 			animator.SetFloat("Move", 1f);
 			if (transform.position.x > playerTransform.position.x)
@@ -47,7 +67,7 @@ public class WaypointEnemy : MonoBehaviour
 				transform.position += Vector3.right * moveSpeed * Time.deltaTime;
 			}
 		}
-        else if (!enemy1Ability.isAttacking && !enemies.isDead && !enemy1Ability.playerInRange)
+        else if (!enemy1Ability.isAttacking && !enemies.isDead && !enemy1Ability.playerInRange && KBCounter <= 0)
         {
 			animator.SetFloat("Move", 1f);
 			if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
@@ -74,5 +94,20 @@ public class WaypointEnemy : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	public void KnockbackEffect()
+	{
+		KBCounter = KBTotalTime;
+		if (playerTransform.position.x <= transform.position.x)
+		{
+			KnockFromRight = true;
+		}
+		if (playerTransform.position.x > transform.position.x)
+		{
+			KnockFromRight = false;
+
+		}
+
 	}
 }

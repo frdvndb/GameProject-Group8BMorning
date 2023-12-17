@@ -289,6 +289,10 @@ MonoBehaviour:
   animator: {fileID: 2771983817994106909}
   enemy1Ability: {fileID: 0}
   enemies: {fileID: 0}
+  KBForce: 1
+  KBCounter: 0
+  KBTotalTime: 0.2
+  KnockFromRight: 0
 --- !u!60 &7325186430722221872
 PolygonCollider2D:
   m_ObjectHideFlags: 0

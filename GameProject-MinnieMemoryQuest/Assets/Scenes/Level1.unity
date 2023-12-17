@@ -19638,6 +19638,10 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 8453990170555665234}
+    - target: {fileID: 7152510558340148212, guid: 0aa4ffd8f56323249a3de98112baad0b, type: 3}
+      propertyPath: popUpManager
+      value: 
+      objectReference: {fileID: 176670192}
     - target: {fileID: 8318358786513689977, guid: 0aa4ffd8f56323249a3de98112baad0b, type: 3}
       propertyPath: m_Name
       value: Interaction - GetItemIncreaseHP (2)
@@ -80153,6 +80157,10 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 8453990170555665234}
+    - target: {fileID: 7152510558340148212, guid: 0aa4ffd8f56323249a3de98112baad0b, type: 3}
+      propertyPath: popUpManager
+      value: 
+      objectReference: {fileID: 176670192}
     - target: {fileID: 8318358786513689977, guid: 0aa4ffd8f56323249a3de98112baad0b, type: 3}
       propertyPath: m_Name
       value: Interaction - GetItemIncreaseHP (1)
@@ -80454,6 +80462,10 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 8453990170555665234}
+    - target: {fileID: 7152510558340148212, guid: 0aa4ffd8f56323249a3de98112baad0b, type: 3}
+      propertyPath: popUpManager
+      value: 
+      objectReference: {fileID: 176670192}
     - target: {fileID: 8318358786513689977, guid: 0aa4ffd8f56323249a3de98112baad0b, type: 3}
       propertyPath: m_Name
       value: Interaction - GetItemIncreaseHP
@@ -81987,6 +81999,10 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 8453990170555665234}
+    - target: {fileID: 5975936717031884577, guid: ffcd4dd2c946f924290ec46c4d3c2706, type: 3}
+      propertyPath: popUpManager
+      value: 
+      objectReference: {fileID: 176670192}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
