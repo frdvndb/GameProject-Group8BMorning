@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class NextSceneLoader : MonoBehaviour
 {
+	[SerializeField] private string scene;
 	private void OnEnable()
 	{
-		SceneManager.LoadScene("Level1");
+		SceneManager.LoadScene(scene);
+		Time.timeScale = 1f;
+		PlayerPrefs.DeleteAll();
 	}
 }

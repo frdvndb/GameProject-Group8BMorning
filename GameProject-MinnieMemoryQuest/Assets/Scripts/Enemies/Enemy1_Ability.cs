@@ -10,6 +10,7 @@ public class Enemy1_Ability : MonoBehaviour
 	[SerializeField] LayerMask playerLayers;
 	[SerializeField] int attackDamage = 20;
 	[SerializeField] float attackRate = 2f;
+	[SerializeField] private Enemies enemies;
 
 	private float nextAttackTime = 0f;
 	public bool playerInRange = false;
@@ -18,6 +19,7 @@ public class Enemy1_Ability : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
+		enemies = GetComponent<Enemies>();
 		animator = GetComponent<Animator>();
 		attackDamage = attackDamage / 2;
 	}
@@ -25,7 +27,7 @@ public class Enemy1_Ability : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (playerInRange && Time.time >= nextAttackTime && !isAttacking)
+		if (playerInRange && Time.time >= nextAttackTime && !isAttacking && !enemies.isDead)
 		{
 			Attack();
 			nextAttackTime = Time.time + 2f / attackRate;

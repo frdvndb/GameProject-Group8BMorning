@@ -40,7 +40,8 @@ public class Player : MonoBehaviour
 
 	public void TakeDamage(int damage)
 	{
-		StartCoroutine(PPHScript.TakeDamageEffect());
+		PPHScript.StartDamageEffect();
+		//StartCoroutine(PPHScript.TakeDamageEffect());
 		currentHealth -= damage;
 		playerAbility.EndAttackEvent();
 		//animator.SetTrigger("Hurt");

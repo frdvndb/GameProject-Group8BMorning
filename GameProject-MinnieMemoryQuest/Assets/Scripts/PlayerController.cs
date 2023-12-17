@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private PlayerAbility playerAbility;
 	[SerializeField] private Player player;
 	[SerializeField] private PlayerAudio playerAudio;
+	//[SerializeField] private ParticleSystem dustEffect;
 	private int jumpCount;
 	public bool allowMove = true;
 	public bool doubleJump;
@@ -58,6 +59,7 @@ public class PlayerController : MonoBehaviour
 		
 		if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && jumpCount > 0 && isJumping)
 		{
+			//CreateDust();
 			isJumping = false;
 			onGround = false;
 			playerAudio.audioJump();
@@ -91,12 +93,18 @@ public class PlayerController : MonoBehaviour
 		if (hAxis < 0)
 		{
 			transform.localScale = new Vector3(-1, 1, 1);
+			//dustEffect.transform.localScale = new Vector3(-1, 1, 1);
+			//CreateDust();
+
 		}
 
 		// If player is moving right scale = 1
 		if (hAxis > 0)
 		{
 			transform.localScale = new Vector3(1, 1, 1);
+			//dustEffect.transform.localScale = new Vector3(1, 1, 1);
+			//CreateDust();
+
 		}
 	}
 
@@ -137,5 +145,10 @@ public class PlayerController : MonoBehaviour
 	public void getItemIncreaseAttack()
 	{
 		playerAbility.attackDamage = playerAbility.attackDamage + 10;
+	}
+
+	public void CreateDust()
+	{
+		//dustEffect.Play();
 	}
 }

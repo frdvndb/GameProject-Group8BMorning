@@ -39,6 +39,7 @@ public class Persistent : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.L))
 		{
 			scoreboardScript.ShowScoreboard();
+			if (!IsLevel2Unlocked) { IsLevel2Unlocked = true; }
 		}
 
 	}

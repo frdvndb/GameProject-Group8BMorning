@@ -6064,6 +6064,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2482225730882984489, guid: 8b6cce2d3fc1adf4a83e57ca17dea5fe, type: 3}
   m_PrefabInstance: {fileID: 93003875}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &302918414 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6675160790975915870, guid: 401d1b0c62effa249912b55570aa29f9, type: 3}
+  m_PrefabInstance: {fileID: 8645172741229333677}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &317765666 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5626066619071142480, guid: 9e78af32ac92d3f4fa8824c470ee15af, type: 3}
@@ -74549,6 +74560,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: btnSettings
       objectReference: {fileID: 0}
+    - target: {fileID: 8692111532835972160, guid: 4fe9057ad5343ba4fa7486ff0e3013e7, type: 3}
+      propertyPath: m_Colors.m_PressedColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692111532835972160, guid: 4fe9057ad5343ba4fa7486ff0e3013e7, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692111532835972160, guid: 4fe9057ad5343ba4fa7486ff0e3013e7, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692111532835972160, guid: 4fe9057ad5343ba4fa7486ff0e3013e7, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.78431374
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -80707,6 +80734,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2168320114337768030, guid: 8226723de2bbe834ebed8ea2e474386e, type: 3}
+      propertyPath: _volume2
+      value: 
+      objectReference: {fileID: 302918414}
     - target: {fileID: 4011363002478563512, guid: 8226723de2bbe834ebed8ea2e474386e, type: 3}
       propertyPath: m_Name
       value: Post Processing Hurt

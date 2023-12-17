@@ -53,7 +53,7 @@ public class PlayerAbility : MonoBehaviour
 			{
 				bossLv2Component.TakeDamage(attackDamage);
 			}
-			else if (enemiesComponent != null)
+			else if (enemiesComponent != null && !enemiesComponent.enemyIsDead)
 			{
 				enemiesComponent.TakeDamage(attackDamage);
 			}

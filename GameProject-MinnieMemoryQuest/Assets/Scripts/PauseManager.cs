@@ -5,7 +5,8 @@ using UnityEngine;
 public class PauseManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenuUI;
-    private bool isPaused;
+	[SerializeField] private GameObject settingMenuUI;
+	private bool isPaused;
     // Start is called before the first frame update
     private void Update()
     {
@@ -27,6 +28,7 @@ public class PauseManager : MonoBehaviour
         {
             isPaused = false;
             Time.timeScale = 1f;
+            settingMenuUI.SetActive(false);
         }
         pauseMenuUI.SetActive(isPaused);
     }

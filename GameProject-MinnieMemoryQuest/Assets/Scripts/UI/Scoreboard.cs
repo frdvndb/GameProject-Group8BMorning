@@ -18,10 +18,14 @@ public class Scoreboard : MonoBehaviour
 	private float timeTemporary;
 	[SerializeField] private AudioSource audioSource;
 	[SerializeField] private AudioClip clipWin;
+	[SerializeField] private string scene;
+	[SerializeField] public int fromScore;
+
 	// Start is called before the first frame update
 	void Start()
     {
         enemiesDefeated = 0;
+		fromScore = 0;
     }
 
     // Update is called once per frame
@@ -29,6 +33,11 @@ public class Scoreboard : MonoBehaviour
     {
         
     }
+
+	public void addEnemiesToScore()
+	{
+		scoreOriginal.AddScore();
+	}
 	public void ShowScoreboard()
 	{
 		Time.timeScale = 0f;
@@ -40,16 +49,18 @@ public class Scoreboard : MonoBehaviour
 		timeText.text = "Times : " + timeTemporary;
 		enemiesDefeatedText.text = "Enemies Defeated : " + enemiesDefeated;
 		if (scoreTemporary == 20) { ratingText.text = "A"; }
-		if (scoreTemporary >=15) { ratingText.text = "B"; }
-		if (scoreTemporary >= 10){ ratingText.text = "C"; }
-		if (scoreTemporary < 10) { ratingText.text = "D"; }
+		else if (scoreTemporary >= 15) { ratingText.text = "B"; }
+		else if(scoreTemporary >= 10){ ratingText.text = "C"; }
+		else if(scoreTemporary < 10) { ratingText.text = "D"; }
 	}
 
 	public void NextLevel()
 	{
 		Time.timeScale = 1f;
 		scoreboardMenu.SetActive(false);
-		int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-		SceneManager.LoadScene(currentSceneIndex + 1);
+		SceneManager.LoadScene(scene);
+		PlayerPrefs.DeleteAll();
+		//int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+		//SceneManager.LoadScene(currentSceneIndex + 1);
 	}
 }

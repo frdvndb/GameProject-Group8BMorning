@@ -11,6 +11,7 @@ public class Enemies : MonoBehaviour
     Enemy1Audio enemyAudio;
     public bool isDead;
     WaypointEnemy waypointEnemy;
+    public bool enemyIsDead = false;
 
 	// Start is called before the first frame update
 	void Start()
@@ -19,7 +20,7 @@ public class Enemies : MonoBehaviour
         enemyAudio = GetComponent<Enemy1Audio>();
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
-    }
+	}
 
     // Update is called once per frame
     void Update()
@@ -34,19 +35,21 @@ public class Enemies : MonoBehaviour
 		animator.SetTrigger("Hurt");
         if (currentHealth <= 0)
         {
-            scoreboard.enemiesDefeated++;
-            Die();
+            enemyIsDead = true;
+			Die();
         }
     }
 
 	private void Die()
 	{
         isDead = true;
+		enemyAudio.audioDead();
 		animator.SetBool("IsDead", isDead);
+		scoreboard.enemiesDefeated++;
+		scoreboard.addEnemiesToScore();
 	}
 	public void DieEvent()
 	{
-		enemyAudio.audioDead();
         Destroy(gameObject);
 	}
 }

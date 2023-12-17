@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: Post Processing Hurt Profile
+  m_Name: PProcessingFC Profile
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 6469196323388119505}
---- !u!114 &6469196323388119505
+  - {fileID: 3383733205247747478}
+--- !u!114 &3383733205247747478
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -35,16 +35,16 @@ MonoBehaviour:
     value: 0
   color:
     overrideState: 1
-    value: {r: 1, g: 0, b: 0, a: 1}
+    value: {r: 0, g: 0, b: 0, a: 1}
   center:
     overrideState: 0
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.45
+    value: 0.526
   smoothness:
     overrideState: 1
-    value: 0.2
+    value: 0.408
   roundness:
     overrideState: 0
     value: 1

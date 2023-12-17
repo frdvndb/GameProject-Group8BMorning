@@ -9,6 +9,9 @@ public class BossLv1 : MonoBehaviour
 	[SerializeField] private Scoreboard scoreboard;
 	Animator animator;
 	public bool isDead;
+	[SerializeField] private GameObject persistent;
+	[SerializeField] private Persistent persistentScript;
+	public bool enemyIsDead = false;
 
 	// Start is called before the first frame update
 	void Start()
@@ -20,7 +23,11 @@ public class BossLv1 : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-
+		if (persistent == null)
+		{
+			persistent = GameObject.Find("Persistent");
+			persistentScript = persistent.GetComponent<Persistent>();
+		}
 	}
 
 	public void TakeDamage(int damage)
@@ -29,7 +36,7 @@ public class BossLv1 : MonoBehaviour
 		animator.SetTrigger("Hurt");
 		if (currentHealth <= 0)
 		{
-			scoreboard.enemiesDefeated++;
+			enemyIsDead = true;
 			Die();
 		}
 	}
@@ -37,11 +44,13 @@ public class BossLv1 : MonoBehaviour
 	private void Die()
 	{
 		isDead = true;
+		persistentScript.IsLevel2Unlocked = true;
 		animator.SetBool("IsDead", true);
+		scoreboard.enemiesDefeated++;
+		scoreboard.addEnemiesToScore();
 	}
 	public void DieEvent()
 	{
-		GetComponent<Collider2D>().enabled = false;
 		this.enabled = false;
 		scoreboard.ShowScoreboard();
 	}
