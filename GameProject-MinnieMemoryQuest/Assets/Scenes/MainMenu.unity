@@ -484,7 +484,7 @@ MonoBehaviour:
     Artist </align></b>\r\nNabila Nurul Ashari\r\nSuryani Kurnia Dewi\r\n\n\n\n\n\n<b><align=center>
     -- Other -- </align></b>\r\n\n\rAnd various other parties who helped, either
     directly or indirectly, especially Infinite Learning which has facilitated the
-    creation of this game.\n"
+    creation of this game.  The font used in this game is Pixely\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f097d130833d92a479ceb3d3ee6705c8, type: 2}
   m_sharedMaterial: {fileID: -6738368943999984809, guid: f097d130833d92a479ceb3d3ee6705c8, type: 2}
@@ -977,7 +977,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: v. xxxx
+  m_text: v. xxxx - By 8Heroes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f097d130833d92a479ceb3d3ee6705c8, type: 2}
   m_sharedMaterial: {fileID: -6738368943999984809, guid: f097d130833d92a479ceb3d3ee6705c8, type: 2}
@@ -1020,7 +1020,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -1608,7 +1608,8 @@ MonoBehaviour:
     Hurt SFX: \u201CRPG Essentials Sound Effects - FREE!\u201D - leohpaz\r\nCheckpoint
     SFX: \u201CRPG Essentials Sound Effects - FREE!\u201D - leohpaz\r\nFire SFX:
     \u201CRPG Essentials Sound Effects - FREE!\u201D - leohpaz\r\nButton SFX: \u201CRPG
-    Essentials Sound Effects - FREE!\u201D - leohpaz\r\n"
+    Essentials Sound Effects - FREE!\u201D - leohpaz\r\nWin SFX: \u201CFREE Casual
+    Game SFX Pack\u201D - Dustyroom\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f097d130833d92a479ceb3d3ee6705c8, type: 2}
   m_sharedMaterial: {fileID: -6738368943999984809, guid: f097d130833d92a479ceb3d3ee6705c8, type: 2}

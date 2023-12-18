@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private PlayerAudio playerAudio;
 	[SerializeField] private GameObject persistentObject;
 	[SerializeField] private Persistent persistentScript;
-	//[SerializeField] private ParticleSystem dustEffect;
+	[SerializeField] private ParticleSystem dustEffect;
+	[SerializeField] private ParticleSystem dustEffect2;
 	private int jumpCount;
 	public bool allowMove = true;
 	public bool doubleJump;
@@ -67,7 +68,7 @@ public class PlayerController : MonoBehaviour
 		
 		if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && jumpCount > 0 && isJumping)
 		{
-			//CreateDust();
+			CreateDust2();
 			isJumping = false;
 			onGround = false;
 			playerAudio.audioJump();
@@ -100,19 +101,23 @@ public class PlayerController : MonoBehaviour
 		// If player is moving left scale = -1
 		if (hAxis < 0)
 		{
+			if (onGround)
+			{
+				CreateDust();
+			}
 			transform.localScale = new Vector3(-1, 1, 1);
-			//dustEffect.transform.localScale = new Vector3(-1, 1, 1);
-			//CreateDust();
-
+			dustEffect.transform.localScale = new Vector3(-1, 1, 1);
 		}
 
 		// If player is moving right scale = 1
 		if (hAxis > 0)
 		{
+			if (onGround)
+			{
+				CreateDust();
+			}
 			transform.localScale = new Vector3(1, 1, 1);
-			//dustEffect.transform.localScale = new Vector3(1, 1, 1);
-			//CreateDust();
-
+			dustEffect.transform.localScale = new Vector3(1, 1, 1);
 		}
 	}
 
@@ -120,8 +125,8 @@ public class PlayerController : MonoBehaviour
 	{
 		if (col.tag == "Ground" || col.tag == "GroundEnemy")
 		{
+			CreateDust2();
 			onGround = true;
-
 			if (hasDoubleJump || persistentScript.doubleJumpUnlocked)
 			{
 				jumpCount = maxJumpCount;
@@ -130,6 +135,7 @@ public class PlayerController : MonoBehaviour
 			{
 				jumpCount = 1;
 			}
+
 		}
 	}
 
@@ -159,6 +165,11 @@ public class PlayerController : MonoBehaviour
 
 	public void CreateDust()
 	{
-		//dustEffect.Play();
+		dustEffect.Play();
+	}
+
+	public void CreateDust2()
+	{
+		dustEffect2.Play();
 	}
 }

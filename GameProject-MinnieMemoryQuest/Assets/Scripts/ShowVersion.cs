@@ -9,6 +9,6 @@ public class ShowVersion : MonoBehaviour
 
 	private void Start()
 	{
-		txtVersion.SetText("v. " + Application.version);
+		txtVersion.SetText("v. " + Application.version + " - By " + Application.companyName);
 	}
 }
