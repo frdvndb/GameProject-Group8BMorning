@@ -14,11 +14,13 @@ public class BossLv2_Waypoint : MonoBehaviour
 	[SerializeField] private Animator animator;
 	[SerializeField] private BossLv2_Ability bossLv2Ability;
 	[SerializeField] private BossLv2 bossLv2;
+	[SerializeField] private WallCheckPoint jumpScript;
 	// Start is called before the first frame update
 	void Start()
 	{
 		bossLv2 = GetComponent<BossLv2>();
 		bossLv2Ability = GetComponent<BossLv2_Ability>();
+		jumpScript = GetComponent<WallCheckPoint>();
 	}
 
 	// Update is called once per frame
@@ -45,6 +47,7 @@ public class BossLv2_Waypoint : MonoBehaviour
 				transform.localScale = new Vector3(-1, 1, 1);
 				transform.position += Vector3.right * moveSpeed * Time.deltaTime;
 			}
+			jumpScript.JumpAbility(transform.position.x, playerTransform.position.x);
 		}
 		else if (!bossLv2Ability.isAttacking && !bossLv2.isDead)
 		{

@@ -36,7 +36,6 @@ public class BossLv1_Ability : MonoBehaviour
 	{
 		if (collision.gameObject.tag == "Player")
 		{
-			Debug.Log("Player entered range.");
 			playerInRange = true;
 		}
 	}
@@ -45,7 +44,6 @@ public class BossLv1_Ability : MonoBehaviour
 	{
 		if (collision.CompareTag("Player"))
 		{
-			Debug.Log("Player exited range.");
 			playerInRange = false;
 		}
 	}
