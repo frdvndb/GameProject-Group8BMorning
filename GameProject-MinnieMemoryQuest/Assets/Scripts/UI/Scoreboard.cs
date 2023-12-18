@@ -15,7 +15,7 @@ public class Scoreboard : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI ratingText;
 	public int enemiesDefeated;
 	private int scoreTemporary;
-	private float timeTemporary;
+	public float timeTemporary;
 	[SerializeField] private AudioSource audioSource;
 	[SerializeField] private AudioClip clipWin;
 	[SerializeField] private string scene;
@@ -49,6 +49,7 @@ public class Scoreboard : MonoBehaviour
 		Time.timeScale = 0f;
 		scoreboardMenu.SetActive(true);
 		audioSource.PlayOneShot(clipWin);
+		persistentScript.timePersistent = 0;
 		scoreTemporary = scoreOriginal.score;
 		scoreText.text = "Scores : " + scoreTemporary;
 		timeTemporary = timeOriginal.timeRemaining;

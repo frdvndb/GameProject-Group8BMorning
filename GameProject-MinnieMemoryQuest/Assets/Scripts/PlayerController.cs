@@ -121,13 +121,14 @@ public class PlayerController : MonoBehaviour
 		if (col.tag == "Ground" || col.tag == "GroundEnemy")
 		{
 			onGround = true;
-			if (!hasDoubleJump)
-			{
-				jumpCount = 1;
-			}
+
 			if (hasDoubleJump || persistentScript.doubleJumpUnlocked)
 			{
 				jumpCount = maxJumpCount;
+			}
+			else if (!hasDoubleJump)
+			{
+				jumpCount = 1;
 			}
 		}
 	}

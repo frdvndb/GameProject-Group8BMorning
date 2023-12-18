@@ -45,11 +45,11 @@ public class PlayerAbility : MonoBehaviour
 			BossLv2 bossLv2Component = enemy.GetComponent<BossLv2>();
 			Enemies enemiesComponent = enemy.GetComponent<Enemies>();
 
-			if (bossLv1Component != null)
+			if (bossLv1Component != null && !bossLv1Component.isDead)
 			{
 				bossLv1Component.TakeDamage(attackDamage);
 			}
-			else if (bossLv2Component != null)
+			else if (bossLv2Component != null && !bossLv2Component.isDead)
 			{
 				bossLv2Component.TakeDamage(attackDamage);
 			}

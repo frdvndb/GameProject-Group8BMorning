@@ -19,7 +19,7 @@ public class BossLv2_Ability : MonoBehaviour
 	void Start()
 	{
 		animator = GetComponent<Animator>();
-		attackDamage = attackDamage / 2;
+		attackDamage = attackDamage / 4;
 	}
 
 	// Update is called once per frame

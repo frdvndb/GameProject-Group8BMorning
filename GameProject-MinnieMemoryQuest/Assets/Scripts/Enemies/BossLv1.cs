@@ -51,7 +51,9 @@ public class BossLv1 : MonoBehaviour
 	}
 	public void DieEvent()
 	{
-		this.enabled = false;
+		//this.enabled = false;
+		Destroy(gameObject);
 		scoreboard.ShowScoreboard();
+		
 	}
 }

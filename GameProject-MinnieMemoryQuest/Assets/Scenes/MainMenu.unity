@@ -453,8 +453,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 542.5275, y: -400.187}
-  m_SizeDelta: {x: 1065.055, y: 780.374}
+  m_AnchoredPosition: {x: 259.285, y: -400.065}
+  m_SizeDelta: {x: 518.57, y: 800.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &180326121
 MonoBehaviour:
@@ -476,16 +476,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'xxxx - xxxx
-
-    xxxx - xxxx
-
-    xxxx - xxxx
-
-    xxxx - xxxx
-
-    xxxx
-    - xxxx'
+  m_text: "<b><align=center> -- 8Heroes -- </align></b>\r\n\r\n<b><align=center>Project
+    Manager </align></b>\r\nHendri Hananta Wahyu Wibowo\r\nShalommita Pranatantri
+    \r\n\r\n<b><align=center>Game Designer </align></b>\r\nHendri Hananta Wahyu Wibowo\r\nM.
+    Farid Pebrian\r\nShalommita Pranatantri \r\n\r\n<b><align=center>Game Programmer
+    </align></b>\r\nM. Farid Pebrian\r\nShalommita Pranatantri \r\n\r\n<b><align=center>Game
+    Artist </align></b>\r\nNabila Nurul Ashari\r\nSuryani Kurnia Dewi\r\n\n\n\n\n\n<b><align=center>
+    -- Other -- </align></b>\r\n\n\rAnd various other parties who helped, either
+    directly or indirectly, especially Infinite Learning which has facilitated the
+    creation of this game.\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f097d130833d92a479ceb3d3ee6705c8, type: 2}
   m_sharedMaterial: {fileID: -6738368943999984809, guid: f097d130833d92a479ceb3d3ee6705c8, type: 2}
@@ -512,8 +511,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1532,6 +1531,159 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844775076}
+  m_CullTransparentMesh: 1
+--- !u!1 &882727241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 882727242}
+  - component: {fileID: 882727244}
+  - component: {fileID: 882727243}
+  m_Layer: 5
+  m_Name: Text (TMP) (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &882727242
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882727241}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1885078704}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 820.805, y: -400.065}
+  m_SizeDelta: {x: 604.47, y: 800.13}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &882727243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882727241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "<b><align=center> --Sound-- </align></b>\n\n<b><align=center>motionarray.com
+    </align></b>\nLevel 1 BGM: \u201CForest Cave\u201D - Den Elbriggs\r\nLevel 2
+    BGM: \u201CWorld Is Frozen\u201D - Kyan\r\nMain Menu BGM: \u201CBlack & White
+    Piano Ambient\u201D - Frequently Asked Music\r\nEnding BGM: \u201CEpic Staccato\u201D
+    - MusicFinder\r\n\n<b><align=center>pixabay.com </align></b>\nLevel 1 BGM: \u201Cforest
+    with small river birds and nature field recording\u201D \r\nLevel 2 BGM: \u201CSoft
+    Rain Ambient\u201D - SoundsForYou\r\nPlayer Attack SFX: \u201CSwinging staff
+    whoosh (strong)\u201D 08 \r\nFailed SFX: \u201CFail\u201D - UNIVERSFIELD\r\nEnemy
+    Dead SFX: monster death grunt - 666HeroHero\r\nBoss Level 1 Attack SFX: \u201CPUNCH-BOXING-02.wav\u201D\r\nBoss
+    Level 2 Attack SFX: \u201Cstrong hit\u201D\r\nCollect Coin SFX; \u201CCollectCoin\u201D\r\nCollect
+    Item SFX: \u201CCollected Item\u201D\r\n\n<b><align=center>zapslat.com </align></b>\r\nFootstep
+    SFX: \u201CFootball, soccer boot single footstep, run on grass 11\u201D\r\n\n<b><align=center>assetstore.unity.com
+    </align></b>\nJump SFX: \u201CRPG Essentials Sound Effects - FREE!\u201D - leohpaz\r\nEnemy
+    Attack SFX: \u201CRPG Essentials Sound Effects - FREE!\u201D - leohpaz\r\nEnemy
+    Hurt SFX: \u201CRPG Essentials Sound Effects - FREE!\u201D - leohpaz\r\nBoss
+    Dead SFX: \u201CRPG Essentials Sound Effects - FREE!\u201D - leohpaz\r\nBoss
+    Hurt SFX: \u201CRPG Essentials Sound Effects - FREE!\u201D - leohpaz\r\nCheckpoint
+    SFX: \u201CRPG Essentials Sound Effects - FREE!\u201D - leohpaz\r\nFire SFX:
+    \u201CRPG Essentials Sound Effects - FREE!\u201D - leohpaz\r\nButton SFX: \u201CRPG
+    Essentials Sound Effects - FREE!\u201D - leohpaz\r\n"
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: f097d130833d92a479ceb3d3ee6705c8, type: 2}
+  m_sharedMaterial: {fileID: -6738368943999984809, guid: f097d130833d92a479ceb3d3ee6705c8, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4280897915
+  m_fontColor: {r: 0.48235297, g: 0.31764707, b: 0.16078432, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 12
+  m_fontSizeBase: 12
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &882727244
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882727241}
   m_CullTransparentMesh: 1
 --- !u!1001 &901933245
 PrefabInstance:
@@ -2935,7 +3087,7 @@ GameObject:
   - component: {fileID: 1885078704}
   - component: {fileID: 1885078707}
   - component: {fileID: 1885078706}
-  - component: {fileID: 1885078705}
+  - component: {fileID: 1885078708}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -2956,6 +3108,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 180326120}
+  - {fileID: 882727242}
   m_Father: {fileID: 977445555}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.046666667, y: 0.105000004}
@@ -2963,32 +3116,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.19433594, y: -8.562286}
   m_SizeDelta: {x: -0.38843, y: -24.875}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1885078705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885078703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 10
-    m_Right: 10
-    m_Top: 10
-    m_Bottom: 10
-  m_ChildAlignment: 0
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
 --- !u!114 &1885078706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3027,6 +3154,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885078703}
   m_CullTransparentMesh: 1
+--- !u!114 &1885078708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885078703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &1899704412
 GameObject:
   m_ObjectHideFlags: 0
