@@ -22,13 +22,14 @@ public class Scoreboard : MonoBehaviour
 	[SerializeField] public int fromScore;
 	[SerializeField] private GameObject persistentObject;
 	[SerializeField] private Persistent persistentScript;
-
+	[SerializeField] public int cheatScore;
 	// Start is called before the first frame update
 	void Start()
     {
         enemiesDefeated = 0;
 		fromScore = 0;
-    }
+		cheatScore = 0;
+	}
 
     // Update is called once per frame
     void Update()
@@ -50,12 +51,13 @@ public class Scoreboard : MonoBehaviour
 		scoreboardMenu.SetActive(true);
 		audioSource.PlayOneShot(clipWin);
 		persistentScript.timePersistent = 0;
-		scoreTemporary = scoreOriginal.score;
+		scoreTemporary = scoreOriginal.score + cheatScore;
 		scoreText.text = "Scores : " + scoreTemporary;
 		timeTemporary = timeOriginal.timeRemaining;
 		timeText.text = "Times : " + timeTemporary;
 		enemiesDefeatedText.text = "Enemies Defeated : " + enemiesDefeated;
-		if (scoreTemporary == 20) { ratingText.text = "A"; }
+		if (scoreTemporary >= 30) { ratingText.text = "S"; }
+		else if (scoreTemporary >= 25) { ratingText.text = "A"; }
 		else if (scoreTemporary >= 15) { ratingText.text = "B"; }
 		else if(scoreTemporary >= 10){ ratingText.text = "C"; }
 		else if(scoreTemporary < 10) { ratingText.text = "D"; }
