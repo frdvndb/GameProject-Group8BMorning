@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 /*using static UnityEditor.Experimental.GraphView.GraphView;*/
 
@@ -17,11 +18,18 @@ public class BossLv1_Waypoint : MonoBehaviour
 	[SerializeField] private BossLv1_Ability bossLv1Ability;
 	[SerializeField] private BossLv1 bossLv1;
 	[SerializeField] private WallCheckPoint jumpScript;
+	private Rigidbody2D rb;
+	public float KBForce;
+	public float KBCounter;
+	public float KBTotalTime;
+	public bool KnockFromRight;
 	// Start is called before the first frame update
 	void Start()
 	{
 		bossLv1 = GetComponent<BossLv1>();
 		jumpScript = GetComponent<WallCheckPoint>();
+		rb = GetComponent<Rigidbody2D>();
+
 	}
 
 	// Update is called once per frame
@@ -35,7 +43,19 @@ public class BossLv1_Waypoint : MonoBehaviour
 				playerTransform = player.transform;
 			}
 		}
-		if (isChasing && !bossLv1Ability.isAttacking && !bossLv1.isDead && !bossLv1Ability.playerInRange)
+		if (KBCounter > 0)
+		{
+			if (KnockFromRight == true)
+			{
+				rb.velocity = new Vector2(KBForce, KBForce);
+			}
+			if (KnockFromRight == false)
+			{
+				rb.velocity = new Vector2(-KBForce, KBForce);
+			}
+			KBCounter -= Time.deltaTime;
+		}
+		if (isChasing && !bossLv1Ability.isAttacking && !bossLv1.isDead && !bossLv1Ability.playerInRange && KBCounter <= 0)
 		{
 			animator.SetFloat("Move", 1f);
 			if (transform.position.x > playerTransform.position.x)
@@ -50,7 +70,7 @@ public class BossLv1_Waypoint : MonoBehaviour
 			}
 			jumpScript.JumpAbility(transform.position.x, playerTransform.position.x);
 		}
-		else if(!bossLv1Ability.isAttacking && !bossLv1.isDead && !bossLv1Ability.playerInRange)
+		else if(!bossLv1Ability.isAttacking && !bossLv1.isDead && !bossLv1Ability.playerInRange && KBCounter <= 0)
 		{
 			animator.SetFloat("Move", 1f);
 			if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
@@ -77,6 +97,21 @@ public class BossLv1_Waypoint : MonoBehaviour
 				}
 			}
 		}
+
+	}
+	public void KnockbackEffect()
+	{
+		KBCounter = KBTotalTime;
+		if (playerTransform.position.x <= transform.position.x)
+		{
+			KnockFromRight = true;
+		}
+		if (playerTransform.position.x > transform.position.x)
+		{
+			KnockFromRight = false;
+
+		}
+
 	}
 }
 

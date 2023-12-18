@@ -15,12 +15,18 @@ public class BossLv2_Waypoint : MonoBehaviour
 	[SerializeField] private BossLv2_Ability bossLv2Ability;
 	[SerializeField] private BossLv2 bossLv2;
 	[SerializeField] private WallCheckPoint jumpScript;
+	private Rigidbody2D rb;
+	public float KBForce;
+	public float KBCounter;
+	public float KBTotalTime;
+	public bool KnockFromRight;
 	// Start is called before the first frame update
 	void Start()
 	{
 		bossLv2 = GetComponent<BossLv2>();
 		bossLv2Ability = GetComponent<BossLv2_Ability>();
 		jumpScript = GetComponent<WallCheckPoint>();
+		rb = GetComponent<Rigidbody2D>();
 	}
 
 	// Update is called once per frame
@@ -34,7 +40,19 @@ public class BossLv2_Waypoint : MonoBehaviour
 				playerTransform = player.transform;
 			}
 		}
-		if (isChasing && !bossLv2Ability.isAttacking && !bossLv2.isDead && !bossLv2Ability.playerInRange)
+		if (KBCounter > 0)
+		{
+			if (KnockFromRight == true)
+			{
+				rb.velocity = new Vector2(KBForce, KBForce);
+			}
+			if (KnockFromRight == false)
+			{
+				rb.velocity = new Vector2(-KBForce, KBForce);
+			}
+			KBCounter -= Time.deltaTime;
+		}
+		if (isChasing && !bossLv2Ability.isAttacking && !bossLv2.isDead && !bossLv2Ability.playerInRange && KBCounter <= 0)
 		{
 			animator.SetFloat("Move", 1f);
 			if (transform.position.x > playerTransform.position.x)
@@ -52,7 +70,7 @@ public class BossLv2_Waypoint : MonoBehaviour
 		else if (!bossLv2Ability.isAttacking && !bossLv2.isDead)
 		{
 			animator.SetFloat("Move", 1f);
-			if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance && !bossLv2Ability.playerInRange)
+			if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance && !bossLv2Ability.playerInRange && KBCounter <= 0)
 			{
 				isChasing = true;
 			}
@@ -76,5 +94,19 @@ public class BossLv2_Waypoint : MonoBehaviour
 				}
 			}
 		}
+	}
+	public void KnockbackEffect()
+	{
+		KBCounter = KBTotalTime;
+		if (playerTransform.position.x <= transform.position.x)
+		{
+			KnockFromRight = true;
+		}
+		if (playerTransform.position.x > transform.position.x)
+		{
+			KnockFromRight = false;
+
+		}
+
 	}
 }

@@ -12,12 +12,18 @@ public class BossLv1 : MonoBehaviour
 	[SerializeField] private GameObject persistent;
 	[SerializeField] private Persistent persistentScript;
 	public bool enemyIsDead = false;
+	BoxCollider2D[] boxColliders;
+	BossLv1_Waypoint waypointEnemy;
+
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		animator = GetComponent<Animator>();
 		currentHealth = maxHealth;
+		boxColliders = GetComponents<BoxCollider2D>();
+		waypointEnemy = GetComponent<BossLv1_Waypoint>();
+
 	}
 
 	// Update is called once per frame
@@ -33,9 +39,17 @@ public class BossLv1 : MonoBehaviour
 	public void TakeDamage(int damage)
 	{
 		currentHealth -= damage;
+		waypointEnemy.KnockbackEffect();
 		animator.SetTrigger("Hurt");
 		if (currentHealth <= 0)
 		{
+			foreach (BoxCollider2D collider in boxColliders)
+			{
+				if (collider != null)
+				{
+					collider.enabled = false;
+				}
+			}
 			enemyIsDead = true;
 			Die();
 		}
