@@ -175,9 +175,21 @@ PrefabInstance:
       propertyPath: scene
       value: MainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 1792247108863083308, guid: 547ee259e4bc0b145b7be906b6a7824c, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: e2ff6be10cdfa9c4381deaf30d991cc9, type: 3}
+    - target: {fileID: 1792247108863083308, guid: 547ee259e4bc0b145b7be906b6a7824c, type: 3}
+      propertyPath: m_AspectRatio
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4011636734294762139, guid: 547ee259e4bc0b145b7be906b6a7824c, type: 3}
       propertyPath: scene
       value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612062541449020808, guid: 547ee259e4bc0b145b7be906b6a7824c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -755
       objectReference: {fileID: 0}
     - target: {fileID: 4933688244784177579, guid: 547ee259e4bc0b145b7be906b6a7824c, type: 3}
       propertyPath: m_text
@@ -188,7 +200,8 @@ PrefabInstance:
       value: StoryManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3263474799539974740, guid: 547ee259e4bc0b145b7be906b6a7824c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 547ee259e4bc0b145b7be906b6a7824c, type: 3}

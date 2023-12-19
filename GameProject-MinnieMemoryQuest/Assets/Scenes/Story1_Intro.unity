@@ -171,12 +171,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1792247108863083308, guid: 547ee259e4bc0b145b7be906b6a7824c, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: a08f95fb5d670124186db21f15341ed6, type: 3}
+    - target: {fileID: 1792247108863083308, guid: 547ee259e4bc0b145b7be906b6a7824c, type: 3}
+      propertyPath: m_AspectRatio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612062541449020808, guid: 547ee259e4bc0b145b7be906b6a7824c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -755
+      objectReference: {fileID: 0}
     - target: {fileID: 8217851987109038008, guid: 547ee259e4bc0b145b7be906b6a7824c, type: 3}
       propertyPath: m_Name
       value: StoryManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3263474799539974740, guid: 547ee259e4bc0b145b7be906b6a7824c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 547ee259e4bc0b145b7be906b6a7824c, type: 3}

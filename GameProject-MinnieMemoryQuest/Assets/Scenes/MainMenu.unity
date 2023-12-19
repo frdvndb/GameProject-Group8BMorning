@@ -758,6 +758,7 @@ RectTransform:
   m_Children:
   - {fileID: 374111176}
   - {fileID: 1222597158}
+  - {fileID: 1440540164}
   m_Father: {fileID: 2042642759}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1593,14 +1594,18 @@ MonoBehaviour:
     </align></b>\nLevel 1 BGM: \u201CForest Cave\u201D - Den Elbriggs\r\nLevel 2
     BGM: \u201CWorld Is Frozen\u201D - Kyan\r\nMain Menu BGM: \u201CBlack & White
     Piano Ambient\u201D - Frequently Asked Music\r\nEnding BGM: \u201CEpic Staccato\u201D
-    - MusicFinder\r\n\n<b><align=center>pixabay.com </align></b>\nLevel 1 BGM: \u201Cforest
-    with small river birds and nature field recording\u201D \r\nLevel 2 BGM: \u201CSoft
-    Rain Ambient\u201D - SoundsForYou\r\nPlayer Attack SFX: \u201CSwinging staff
-    whoosh (strong)\u201D 08 \r\nFailed SFX: \u201CFail\u201D - UNIVERSFIELD\r\nEnemy
-    Dead SFX: monster death grunt - 666HeroHero\r\nBoss Level 1 Attack SFX: \u201CPUNCH-BOXING-02.wav\u201D\r\nBoss
-    Level 2 Attack SFX: \u201Cstrong hit\u201D\r\nCollect Coin SFX; \u201CCollectCoin\u201D\r\nCollect
-    Item SFX: \u201CCollected Item\u201D\r\n\n<b><align=center>zapslat.com </align></b>\r\nFootstep
-    SFX: \u201CFootball, soccer boot single footstep, run on grass 11\u201D\r\n\n<b><align=center>assetstore.unity.com
+    - MusicFinder\r\nStory Intro BGM: \"Slight Dance In The Night\" - MusicLFiles\nStory
+    After Level 1 BGM: \"Daylight\" - La Repeticion\nStory After Level 2 BGM: \"Peaceful
+    Atmosphere\" - Dodoo\nStory Choice BGM: \"Loving Slowly\" - MusicLFiles\nStory
+    Choice BGM: \"Hopeful Way\" -  Little Flower Production Music \n\n<b><align=center>pixabay.com
+    </align></b>\nLevel 1 BGM: \u201Cforest with small river birds and nature field
+    recording\u201D \r\nLevel 2 BGM: \u201CSoft Rain Ambient\u201D - SoundsForYou\r\nPlayer
+    Attack SFX: \u201CSwinging staff whoosh (strong)\u201D 08 \r\nFailed SFX: \u201CFail\u201D
+    - UNIVERSFIELD\r\nEnemy Dead SFX: monster death grunt - 666HeroHero\r\nBoss Level
+    1 Attack SFX: \u201CPUNCH-BOXING-02.wav\u201D\r\nBoss Level 2 Attack SFX: \u201Cstrong
+    hit\u201D\r\nCollect Coin SFX; \u201CCollectCoin\u201D\r\nCollect Item SFX: \u201CCollected
+    Item\u201D\r\n\n<b><align=center>zapslat.com </align></b>\r\nFootstep SFX: \u201CFootball,
+    soccer boot single footstep, run on grass 11\u201D\r\n\n<b><align=center>assetstore.unity.com
     </align></b>\nJump SFX: \u201CRPG Essentials Sound Effects - FREE!\u201D - leohpaz\r\nEnemy
     Attack SFX: \u201CRPG Essentials Sound Effects - FREE!\u201D - leohpaz\r\nEnemy
     Hurt SFX: \u201CRPG Essentials Sound Effects - FREE!\u201D - leohpaz\r\nBoss
@@ -2028,7 +2033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1124565080
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2697,6 +2702,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c7cc83f61d1b84aa5b61f5b72606ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1440540163
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1440540164}
+  - component: {fileID: 1440540167}
+  - component: {fileID: 1440540166}
+  m_Layer: 5
+  m_Name: Title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1440540164
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440540163}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 7, y: 5, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 412706884}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 543, y: 215}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1440540166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440540163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 8df93abed8c44f5418bb3cfd7d619a05, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 100
+--- !u!222 &1440540167
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440540163}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1495550180
 PrefabInstance:
   m_ObjectHideFlags: 0
