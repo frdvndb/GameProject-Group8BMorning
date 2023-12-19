@@ -6,6 +6,7 @@ public class Checkpoints : MonoBehaviour
 {
 	public int checkpointID;
 
+
 	private void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.CompareTag("Player"))
@@ -18,4 +19,5 @@ public class Checkpoints : MonoBehaviour
 	{
 		PlayerPrefs.SetInt("CurrentCheckpoint", checkpointID);
 	}
+
 }

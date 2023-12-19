@@ -9,7 +9,7 @@ public class BossLv1_Ability : MonoBehaviour
 	[SerializeField] float attackRange = 1f;
 	[SerializeField] LayerMask playerLayers;
 	[SerializeField] int attackDamage = 30;
-	private bool playerInRange = false;
+	public bool playerInRange = false;
 
 	[SerializeField] private float cooldownAttack = 1.5f;
 	private float lastAttack;
@@ -27,7 +27,6 @@ public class BossLv1_Ability : MonoBehaviour
 	{
 		if (playerInRange && Time.time-lastAttack>=cooldownAttack && !isAttacking)
 		{
-			Debug.Log("Attacking!");
 			lastAttack = Time.time;
 			Attack();
 		}
@@ -37,7 +36,6 @@ public class BossLv1_Ability : MonoBehaviour
 	{
 		if (collision.gameObject.tag == "Player")
 		{
-			Debug.Log("Player entered range.");
 			playerInRange = true;
 		}
 	}
@@ -46,7 +44,6 @@ public class BossLv1_Ability : MonoBehaviour
 	{
 		if (collision.CompareTag("Player"))
 		{
-			Debug.Log("Player exited range.");
 			playerInRange = false;
 		}
 	}

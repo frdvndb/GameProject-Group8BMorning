@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,8 +18,15 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private int maxJumpCount = 2;
 	[SerializeField] private PlayerAbility playerAbility;
 	[SerializeField] private Player player;
+	[SerializeField] private PlayerAudio playerAudio;
+	[SerializeField] private GameObject persistentObject;
+	[SerializeField] private Persistent persistentScript;
+	[SerializeField] private ParticleSystem dustEffect;
+	[SerializeField] private ParticleSystem dustEffect2;
 	private int jumpCount;
 	public bool allowMove = true;
+	public bool doubleJump;
+	public bool isJumping = true;
 
 	public bool AllowMove { set { allowMove = value; } get { return allowMove; } }
 	// Start is called before the first frame update
@@ -26,6 +34,7 @@ public class PlayerController : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
+		jumpCount = maxJumpCount;
 	}
 
 	// Update is called once per frame
@@ -43,6 +52,13 @@ public class PlayerController : MonoBehaviour
 
 		Animations();
 		Facing();
+		animator.SetFloat("yVelocity", rb.velocity.y);
+
+		if (persistentObject == null)
+		{
+			persistentObject = GameObject.Find("Persistent");
+			persistentScript = persistentObject.GetComponent<Persistent>();
+		}
 
 	}
 
@@ -50,17 +66,20 @@ public class PlayerController : MonoBehaviour
 	{
 		jumpDirection = new Vector2(0, 1);
 		
-		if (onGround == true && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)))
+		if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && jumpCount > 0 && isJumping)
 		{
-			playerAbility.Jump();
-			rb.velocity = jumpDirection * jumpPower;
-			jumpCount++;
+			CreateDust2();
+			isJumping = false;
+			onGround = false;
+			playerAudio.audioJump();
+			animator.SetTrigger("Jump");
+			rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+			jumpCount -= 1;
+
 		}
-		if (onGround == false && hasDoubleJump == true && jumpCount < maxJumpCount && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)))
+		if (rb.velocity.y < 0)
 		{
-			playerAbility.Jump();
-			rb.velocity = jumpDirection * (jumpPower-2f);
-			jumpCount++;
+			isJumping = true;
 		}
 	}
 
@@ -82,22 +101,41 @@ public class PlayerController : MonoBehaviour
 		// If player is moving left scale = -1
 		if (hAxis < 0)
 		{
+			if (onGround)
+			{
+				CreateDust();
+			}
 			transform.localScale = new Vector3(-1, 1, 1);
+			dustEffect.transform.localScale = new Vector3(-1, 1, 1);
 		}
 
 		// If player is moving right scale = 1
 		if (hAxis > 0)
 		{
+			if (onGround)
+			{
+				CreateDust();
+			}
 			transform.localScale = new Vector3(1, 1, 1);
+			dustEffect.transform.localScale = new Vector3(1, 1, 1);
 		}
 	}
 
 	private void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.tag == "Ground")
+		if (col.tag == "Ground" || col.tag == "GroundEnemy")
 		{
+			CreateDust2();
 			onGround = true;
-			jumpCount = 0;
+			if (hasDoubleJump || persistentScript.doubleJumpUnlocked)
+			{
+				jumpCount = maxJumpCount;
+			}
+			else if (!hasDoubleJump)
+			{
+				jumpCount = 1;
+			}
+
 		}
 	}
 
@@ -112,15 +150,26 @@ public class PlayerController : MonoBehaviour
 	public void getItemDoubleJump()
 	{
 		hasDoubleJump = true;
+		persistentScript.doubleJumpPlayer(hasDoubleJump);
 	}
 
 	public void getItemIncreaseHP()
 	{
-		player.currentHealth = player.currentHealth + 50;
+		player.currentHealth = player.currentHealth + 20;
 	}
 
 	public void getItemIncreaseAttack()
 	{
 		playerAbility.attackDamage = playerAbility.attackDamage + 10;
+	}
+
+	public void CreateDust()
+	{
+		dustEffect.Play();
+	}
+
+	public void CreateDust2()
+	{
+		dustEffect2.Play();
 	}
 }

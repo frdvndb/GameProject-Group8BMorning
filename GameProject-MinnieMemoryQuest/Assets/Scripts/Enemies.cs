@@ -8,12 +8,19 @@ public class Enemies : MonoBehaviour
     [SerializeField] private int currentHealth;
     [SerializeField] private Scoreboard scoreboard;
     Animator animator;
-    // Start is called before the first frame update
-    void Start()
+    Enemy1Audio enemyAudio;
+    public bool isDead;
+    WaypointEnemy waypointEnemy;
+    public bool enemyIsDead = false;
+
+	// Start is called before the first frame update
+	void Start()
     {
+        waypointEnemy = GetComponent<WaypointEnemy>();
+        enemyAudio = GetComponent<Enemy1Audio>();
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
-    }
+	}
 
     // Update is called once per frame
     void Update()
@@ -24,18 +31,25 @@ public class Enemies : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        animator.SetTrigger("Hurt");
+        waypointEnemy.KnockbackEffect();
+		animator.SetTrigger("Hurt");
         if (currentHealth <= 0)
         {
-            scoreboard.enemiesDefeated++;
-            Die();
+            enemyIsDead = true;
+			Die();
         }
     }
 
-    private void Die()
-    {
-        animator.SetBool("IsDead", true);
-        GetComponent<Collider2D>().enabled = false;
-		Destroy(this.gameObject);
+	private void Die()
+	{
+        isDead = true;
+		enemyAudio.audioDead();
+		animator.SetBool("IsDead", isDead);
+		scoreboard.enemiesDefeated++;
+		scoreboard.addEnemiesToScore();
+	}
+	public void DieEvent()
+	{
+        Destroy(gameObject);
 	}
 }

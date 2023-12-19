@@ -9,10 +9,12 @@ public class MovingFire : MonoBehaviour
 	[SerializeField] private int wayDestination = 1;
 	[SerializeField] private string movingFireType;
 	[SerializeField] private Animator animator;
+	[SerializeField] private AudioSource audioSource;
+	[SerializeField] private AudioClip clip;
 	// Start is called before the first frame update
 	void Start()
 	{
-
+		audioSource.clip = clip;
 	}
 
 	// Update is called once per frame
@@ -27,6 +29,7 @@ public class MovingFire : MonoBehaviour
 				if (Vector2.Distance(transform.position, wayPoints[0].position) < .2f)
 				{
 					transform.localScale = new Vector3(-1, 1, 1);
+					audioSource.Play();
 					wayDestination = 1;
 				}
 			}
@@ -37,6 +40,7 @@ public class MovingFire : MonoBehaviour
 				if (Vector2.Distance(transform.position, wayPoints[1].position) < .2f)
 				{
 					transform.localScale = new Vector3(1, 1, 1);
+					audioSource.Play();
 					wayDestination = 0;
 				}
 			}
@@ -51,6 +55,7 @@ public class MovingFire : MonoBehaviour
 				if (Vector2.Distance(transform.position, wayPoints[0].position) < .2f)
 				{
 					transform.localScale = new Vector3(1, -1, 1);
+					audioSource.Play();
 					wayDestination = 1;
 				}
 			}
@@ -61,6 +66,7 @@ public class MovingFire : MonoBehaviour
 				if (Vector2.Distance(transform.position, wayPoints[1].position) < .2f)
 				{
 					transform.localScale = new Vector3(1, 1, 1);
+					audioSource.Play();
 					wayDestination = 0;
 				}
 			}

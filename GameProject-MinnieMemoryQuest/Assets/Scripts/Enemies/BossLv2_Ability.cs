@@ -9,7 +9,7 @@ public class BossLv2_Ability : MonoBehaviour
 	[SerializeField] float attackRange = 1f;
 	[SerializeField] LayerMask playerLayers;
 	[SerializeField] int attackDamage = 40;
-	private bool playerInRange = false;
+	public bool playerInRange = false;
 
 	[SerializeField] private float cooldownAttack = 1.5f;
 	private float lastAttack;
@@ -19,7 +19,7 @@ public class BossLv2_Ability : MonoBehaviour
 	void Start()
 	{
 		animator = GetComponent<Animator>();
-		attackDamage = attackDamage / 2;
+		attackDamage = attackDamage / 4;
 	}
 
 	// Update is called once per frame

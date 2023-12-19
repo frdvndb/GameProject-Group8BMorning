@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - GameOverManager
+  - GroundEnemy
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - Enemies
   - Player
   - BossLv1
-  - 
-  - 
+  - PostProcessing
+  - Ground
   - 
   - 
   - 
@@ -42,4 +43,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 665214115
     locked: 0

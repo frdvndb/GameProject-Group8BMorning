@@ -5,25 +5,33 @@ using TMPro;
 
 public class UITimer : MonoBehaviour
 {
-    public float timeRemaining = 0;
+    public float timeRemaining;
     public bool timeIsRunning = true;
 	TextMeshProUGUI timerText;
+	[SerializeField] private GameObject persistentObject;
+	[SerializeField] private Persistent persistentScript;
 
 	// Start is called before the first frame update
 	void Start()
     {
 		timerText = GetComponent<TextMeshProUGUI>();
-
+		if (persistentObject == null)
+		{
+			persistentObject = GameObject.Find("Persistent");
+			persistentScript = persistentObject.GetComponent<Persistent>();
+		}
+		timeRemaining = persistentScript.timePersistent;
 	}
 
 	// Update is called once per frame
 	void Update()
     {
-        if (timeIsRunning)
+
+		if (timeIsRunning)
 		{
 			if (timeRemaining >= 0)
 			{
-				timeRemaining += Time.deltaTime;
+				timeRemaining = timeRemaining + Time.deltaTime;
 				DisplayTime(timeRemaining);
 			}
 		}

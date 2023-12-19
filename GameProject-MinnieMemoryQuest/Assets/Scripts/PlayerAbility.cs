@@ -53,7 +53,7 @@ public class PlayerAbility : MonoBehaviour
 			{
 				bossLv2Component.TakeDamage(attackDamage);
 			}
-			else if (enemiesComponent != null)
+			else if (enemiesComponent != null && !enemiesComponent.enemyIsDead)
 			{
 				enemiesComponent.TakeDamage(attackDamage);
 			}
@@ -70,11 +70,6 @@ public class PlayerAbility : MonoBehaviour
 		if (attackPoint == null)
 			return;
 		Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-	}
-
-	public void Jump()
-    {
-		animator.SetTrigger("Jump");
 	}
 
 	void Start()

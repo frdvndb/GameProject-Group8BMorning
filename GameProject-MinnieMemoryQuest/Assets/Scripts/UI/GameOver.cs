@@ -14,12 +14,23 @@ public class GameOver : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI timeText;
 	[SerializeField] private TextMeshProUGUI enemiesDefeatedText;
 	[SerializeField] private Scoreboard scoreBoard;
-	private float timeTemporary;
+	public float timeTemporary;
 	private int scoreTemporary;
+	[SerializeField] private GameObject persistentObject;
+	[SerializeField] private Persistent persistentScript;
 	// Start is called before the first frame update
-	void Start()
+	void Update()
     {
-		
+		if (persistentObject == null)
+		{
+			persistentObject = GameObject.Find("Persistent");
+			persistentScript = persistentObject.GetComponent<Persistent>();
+		}
+	}
+
+	private void Start()
+	{
+		//timeTemporary = persistentScript.timePersistent;
 	}
 
 	public void GameOverScreen()
@@ -29,8 +40,11 @@ public class GameOver : MonoBehaviour
 		scoreTemporary = scoreOriginal.score;
 		scoreText.text = "Scores = " + scoreTemporary;
 		timeTemporary = timeOriginal.timeRemaining;
+		persistentScript.timePersistent = timeTemporary;
 		timeText.text = "Times : " + timeTemporary;
 		enemiesDefeatedText.text = "Enemies Defeated : " + scoreBoard.enemiesDefeated;
+
+
 	}
 
 	public void TryAgain()
